@@ -1,0 +1,6 @@
+.description {
+    max-width: 80%; /* Adjust to desired width */
+    margin: 0 auto; /* Centers the description */
+    padding: 0 15px; /* Adds padding for a neater appearance */
+    display: block; /* Ensures the description is block-level */
+}
