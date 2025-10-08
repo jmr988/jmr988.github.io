@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* Fix intro width + visual balance */
+			/* Keep intro nicely centered and readable */
 			.intro-container {
 				max-width: 900px;
 				margin: 0 auto;
@@ -25,39 +25,11 @@
 				color: #ddd;
 			}
 			@media (max-width: 768px) {
-				.intro-container h1 {
-					font-size: 1.8em;
-				}
-				.intro-container p.description {
-					font-size: 1em;
-				}
+				.intro-container h1 { font-size: 1.8em; }
+				.intro-container p.description { font-size: 1em; }
 			}
-			/* Featured Work link */
-			.featured-divider {
-				margin-top: 2rem;
-				margin-bottom: 0.5rem;
-				text-align: center;
-			}
-			.featured-link {
-				display: inline-block;
-				font-size: 1.1em;
-				font-weight: 600;
-				text-decoration: none;
-			}
-			.featured-link .arrow {
-				opacity: 0.8;
-				margin-left: 6px;
-				transition: transform 0.25s ease, opacity 0.25s ease;
-				display: inline-block;
-			}
-			.featured-link:hover .arrow {
-				transform: translateY(3px);
-				opacity: 1;
-			}
-			/* Optional: tighten top spacing of projects section */
-			#projects .container {
-				padding-top: 1.2rem;
-			}
+			/* Tighten top spacing of projects a bit */
+			#projects .container { padding-top: 1.2rem; }
 		</style>
 	</head>
 	<body class="is-preload">
@@ -76,19 +48,19 @@
 					creating user-friendly digital experiences, I combine design, technology, and
 					data-driven thinking to deliver reliable, impactful web solutions.
 				</p>
-			</div>
 
-			<!-- Clickable Featured Work (smooth scroll) -->
-			<div class="featured-divider">
-				<a href="#projects" class="featured-link scrolly">Featured Work <span class="arrow">↓</span></a>
+				<!-- Matches your button style + smooth scroll -->
+				<ul class="actions special" style="margin-top: 1.5rem;">
+					<li><a href="#projects" class="button scrolly">Featured Work</a></li>
+				</ul>
 			</div>
 		</section>
 
-		<!-- Projects (moved up) -->
+		<!-- Projects (app first, then two-column) -->
 		<section id="projects" class="main style1 special">
 			<div class="container">
 
-				<!-- Row 1: APS app featured by itself -->
+				<!-- Row 1: APS app featured solo -->
 				<div class="row gtr-150">
 					<div class="col-12">
 						<a href="projects/aps-training-academy.html">
@@ -104,7 +76,7 @@
 					</div>
 				</div>
 
-				<!-- Row 2: two-column for the other two sites -->
+				<!-- Row 2: two-column sites -->
 				<div class="row gtr-150">
 					<div class="col-6 col-12-medium">
 						<a href="https://simplydestinee.com/" target="_blank">
