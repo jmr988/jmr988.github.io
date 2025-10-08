@@ -32,13 +32,31 @@
 					font-size: 1em;
 				}
 			}
+			/* Featured Work link */
 			.featured-divider {
 				margin-top: 2rem;
-				margin-bottom: 1rem;
-				font-size: 1.5em;
-				font-weight: 600;
-				color: #fff;
+				margin-bottom: 0.5rem;
 				text-align: center;
+			}
+			.featured-link {
+				display: inline-block;
+				font-size: 1.1em;
+				font-weight: 600;
+				text-decoration: none;
+			}
+			.featured-link .arrow {
+				opacity: 0.8;
+				margin-left: 6px;
+				transition: transform 0.25s ease, opacity 0.25s ease;
+				display: inline-block;
+			}
+			.featured-link:hover .arrow {
+				transform: translateY(3px);
+				opacity: 1;
+			}
+			/* Optional: tighten top spacing of projects section */
+			#projects .container {
+				padding-top: 1.2rem;
 			}
 		</style>
 	</head>
@@ -60,33 +78,19 @@
 				</p>
 			</div>
 
-			<!-- Transition to Projects -->
+			<!-- Clickable Featured Work (smooth scroll) -->
 			<div class="featured-divider">
-				<p>Featured Work</p>
+				<a href="#projects" class="featured-link scrolly">Featured Work <span class="arrow">↓</span></a>
 			</div>
 		</section>
 
 		<!-- Projects (moved up) -->
 		<section id="projects" class="main style1 special">
 			<div class="container">
+
+				<!-- Row 1: APS app featured by itself -->
 				<div class="row gtr-150">
-					<div class="col-4 col-12-medium">
-						<a href="https://simplydestinee.com/" target="_blank">
-							<span class="image fit"><img src="images/simp.PNG" alt="Simply Destinee" /></span>
-						</a>
-						<h3>Simply Destinee</h3>
-						<p>The client needed a full revamp of their outdated Squarespace website, so I migrated their hosting to WordPress and built a fresh, engaging homepage using Elementor and custom video edits for a dynamic, eye-catching look.</p>
-					</div>
-
-					<div class="col-4 col-12-medium">
-						<a href="https://latortugafoundation.org/" target="_blank">
-							<span class="image fit"><img src="images/latort.JPG" alt="La Tortuga Foundation" /></span>
-						</a>
-						<h3>La Tortuga Foundation</h3>
-						<p>I led the complete website redesign for the La Tortuga Foundation, focusing on creating a modern, user-friendly experience that effectively communicates the foundation's mission. I streamlined navigation, improved mobile responsiveness, and implemented new content management tools for easier updates. Additionally, I enhanced the site's aesthetic with fresh visuals and interactive features that engage visitors.</p>
-					</div>
-
-					<div class="col-4 col-12-medium">
+					<div class="col-12">
 						<a href="projects/aps-training-academy.html">
 							<span class="image fit">
 								<img src="https://img.youtube.com/vi/eJEO7Izsesw/hqdefault.jpg" alt="APS Training Academy MVP Demo" />
@@ -99,6 +103,26 @@
 						</ul>
 					</div>
 				</div>
+
+				<!-- Row 2: two-column for the other two sites -->
+				<div class="row gtr-150">
+					<div class="col-6 col-12-medium">
+						<a href="https://simplydestinee.com/" target="_blank">
+							<span class="image fit"><img src="images/simp.PNG" alt="Simply Destinee" /></span>
+						</a>
+						<h3>Simply Destinee</h3>
+						<p>The client needed a full revamp of their outdated Squarespace website, so I migrated their hosting to WordPress and built a fresh, engaging homepage using Elementor and custom video edits for a dynamic, eye-catching look.</p>
+					</div>
+
+					<div class="col-6 col-12-medium">
+						<a href="https://latortugafoundation.org/" target="_blank">
+							<span class="image fit"><img src="images/latort.JPG" alt="La Tortuga Foundation" /></span>
+						</a>
+						<h3>La Tortuga Foundation</h3>
+						<p>I led the complete website redesign for the La Tortuga Foundation, focusing on creating a modern, user-friendly experience that effectively communicates the foundation's mission. I streamlined navigation, improved mobile responsiveness, and implemented new content management tools for easier updates. Additionally, I enhanced the site's aesthetic with fresh visuals and interactive features that engage visitors.</p>
+					</div>
+				</div>
+
 			</div>
 		</section>
 
