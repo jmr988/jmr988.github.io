@@ -6,12 +6,47 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Fix intro width + visual balance */
+			.intro-container {
+				max-width: 900px;
+				margin: 0 auto;
+				padding: 0 20px;
+				text-align: center;
+			}
+			.intro-container h1 {
+				font-size: 2.4em;
+				line-height: 1.3em;
+				margin-bottom: 0.5em;
+			}
+			.intro-container p.description {
+				font-size: 1.1em;
+				line-height: 1.6em;
+				color: #ddd;
+			}
+			@media (max-width: 768px) {
+				.intro-container h1 {
+					font-size: 1.8em;
+				}
+				.intro-container p.description {
+					font-size: 1em;
+				}
+			}
+			.featured-divider {
+				margin-top: 2rem;
+				margin-bottom: 1rem;
+				font-size: 1.5em;
+				font-weight: 600;
+				color: #fff;
+				text-align: center;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
 		<!-- Header -->
 		<section id="header">
-			<div class="inner">
+			<div class="inner intro-container">
 				<span class="icon solid major fa-laptop-code"></span> 
 				<h1>Hi, I’m <strong>Jose Rodriguez</strong></h1>
 				<p class="description">
@@ -23,13 +58,51 @@
 					creating user-friendly digital experiences, I combine design, technology, and
 					data-driven thinking to deliver reliable, impactful web solutions.
 				</p>
-				<ul class="actions special">
-					<li><a href="#one" class="button scrolly">Discover</a></li>
-				</ul>
+			</div>
+
+			<!-- Transition to Projects -->
+			<div class="featured-divider">
+				<p>Featured Work</p>
 			</div>
 		</section>
 
-		<!-- One -->
+		<!-- Projects (moved up) -->
+		<section id="projects" class="main style1 special">
+			<div class="container">
+				<div class="row gtr-150">
+					<div class="col-4 col-12-medium">
+						<a href="https://simplydestinee.com/" target="_blank">
+							<span class="image fit"><img src="images/simp.PNG" alt="Simply Destinee" /></span>
+						</a>
+						<h3>Simply Destinee</h3>
+						<p>The client needed a full revamp of their outdated Squarespace website, so I migrated their hosting to WordPress and built a fresh, engaging homepage using Elementor and custom video edits for a dynamic, eye-catching look.</p>
+					</div>
+
+					<div class="col-4 col-12-medium">
+						<a href="https://latortugafoundation.org/" target="_blank">
+							<span class="image fit"><img src="images/latort.JPG" alt="La Tortuga Foundation" /></span>
+						</a>
+						<h3>La Tortuga Foundation</h3>
+						<p>I led the complete website redesign for the La Tortuga Foundation, focusing on creating a modern, user-friendly experience that effectively communicates the foundation's mission. I streamlined navigation, improved mobile responsiveness, and implemented new content management tools for easier updates. Additionally, I enhanced the site's aesthetic with fresh visuals and interactive features that engage visitors.</p>
+					</div>
+
+					<div class="col-4 col-12-medium">
+						<a href="projects/aps-training-academy.html">
+							<span class="image fit">
+								<img src="https://img.youtube.com/vi/eJEO7Izsesw/hqdefault.jpg" alt="APS Training Academy MVP Demo" />
+							</span>
+						</a>
+						<h3>APS Training Academy — Mobile App MVP</h3>
+						<p>React Native + Firebase MVP: parent/child registration, bookings, and admin tools built in 4 weeks.</p>
+						<ul class="actions special">
+							<li><a class="button" href="projects/aps-training-academy.html">Watch & Read</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- About Me -->
 		<section id="one" class="main style1">
 			<div class="container">
 				<div class="row gtr-150">
@@ -48,7 +121,7 @@
 			</div>
 		</section>
 
-		<!-- Two -->
+		<!-- Skills -->
 		<section id="two" class="main style2">
 			<div class="container">
 				<div class="row gtr-150">
@@ -64,7 +137,7 @@
 					</div>
 					<div class="col-6 col-12-medium">
 						<header class="major">
-							<h2>Languages I speak:</h2>
+							<h2>Languages I Speak:</h2>
 						</header>
 						<ul style="list-style-type:none;">
 							<li>HTML</li>
@@ -86,46 +159,6 @@
 							<li>Git</li>
 							<li>GitHub</li>
 							<li>Chrome Developer Tools</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Three -->
-		<section id="three" class="main style1 special">
-			<div class="container">
-				<header class="major">
-					<h2>Recent Projects</h2>
-				</header>
-				<div class="row gtr-150">
-					<div class="col-4 col-12-medium">
-						<a href="https://simplydestinee.com/" target="_blank">
-							<span class="image fit"><img src="images/simp.PNG" alt="Simply Destinee" /></span>
-						</a>
-						<h3>Simply Destinee</h3>
-						<p>The client needed a full revamp of their outdated Squarespace website, so I migrated their hosting to WordPress and built a fresh, engaging homepage using Elementor and custom video edits for a dynamic, eye-catching look.</p>
-					</div>
-
-					<div class="col-4 col-12-medium">
-						<a href="https://latortugafoundation.org/" target="_blank">
-							<span class="image fit"><img src="images/latort.JPG" alt="La Tortuga Foundation" /></span>
-						</a>
-						<h3>La Tortuga Foundation</h3>
-						<p>I led the complete website redesign for the La Tortuga Foundation, focusing on creating a modern, user-friendly experience that effectively communicates the foundation's mission. I streamlined navigation, improved mobile responsiveness, and implemented new content management tools for easier updates. Additionally, I enhanced the site's aesthetic with fresh visuals and interactive features that engage visitors, making it easier for donors to contribute and supporters to stay informed about conservation efforts.</p>
-					</div>
-
-					<!-- APS Training Academy -->
-					<div class="col-4 col-12-medium">
-						<a href="projects/aps-training-academy.html">
-							<span class="image fit">
-								<img src="https://img.youtube.com/vi/eJEO7Izsesw/hqdefault.jpg" alt="APS Training Academy MVP Demo" />
-							</span>
-						</a>
-						<h3>APS Training Academy — Mobile App MVP</h3>
-						<p>React Native + Firebase MVP: parent/child registration, bookings, and admin tools.</p>
-						<ul class="actions special">
-							<li><a class="button" href="projects/aps-training-academy.html">Watch & Read</a></li>
 						</ul>
 					</div>
 				</div>
