@@ -4,19 +4,22 @@
     <title>La Tortuga EMR — Case Study | Jose Rodriguez</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="Offline-first P2P EMR system deployed on 8 tablets in rural Chiapas, Mexico — router-based mesh sync, bilingual intake, AI health summaries, and Firestore analytics.">
+    <meta name="description" content="Offline-first P2P EMR system deployed on 8 tablets in rural Chiapas, Mexico.">
     <link rel="stylesheet" href="../assets/css/main.css" />
     <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
     <style>
-      .arch-table { width: 100%; border-collapse: collapse; font-size: 0.85em; margin-top: 1rem; border: 1px solid #444 !important; background: #1a1a1a !important; }
-      .arch-table th { text-align: left !important; padding: 10px 14px !important; background: #2a2a2a !important; color: #ffffff !important; font-weight: 700 !important; border-bottom: 2px solid #555 !important; border-right: 1px solid #444 !important; font-size: 0.9em !important; }
-      .arch-table td { padding: 10px 14px !important; border-bottom: 1px solid #444 !important; border-right: 1px solid #333 !important; color: #eeeeee !important; vertical-align: top !important; font-size: 0.85em !important; }
-      .arch-table tr:last-child td { border-bottom: none !important; } .arch-table tr:hover td { background: #2e2e2e !important; }
+      .arch-table-wrap { background: #1c1c1c; border-radius: 8px; padding: 1rem; margin-top: 1rem; overflow-x: auto; }
+      .arch-table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
+      .arch-table th { text-align: left; padding: 10px 14px; background: #2d2d2d; color: #f0f0f0; font-weight: 700; border-bottom: 2px solid #555; border-right: 1px solid #444; }
+      .arch-table td { padding: 10px 14px; border-bottom: 1px solid #3a3a3a; border-right: 1px solid #333; color: #e0e0e0; vertical-align: top; background: #1c1c1c; }
+      .arch-table tr:hover td { background: #252525; }
+      .arch-table tr:last-child td { border-bottom: none; }
+      .arch-table th:last-child, .arch-table td:last-child { border-right: none; }
       .layer-badge { display: inline-block; font-size: 0.75em; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; border-radius: 4px; padding: 2px 7px; margin-bottom: 0.5rem; }
       .badge-offline { background: rgba(80,180,120,0.15); color: #6dcea0; border: 1px solid rgba(80,180,120,0.3); }
       .badge-cloud   { background: rgba(100,160,255,0.12); color: #7eb8ff; border: 1px solid rgba(100,160,255,0.3); }
       .badge-ai      { background: rgba(200,140,255,0.12); color: #d09fff; border: 1px solid rgba(200,140,255,0.3); }
-      .code-block { background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1rem 1.2rem; font-family: monospace; font-size: 0.82em; color: #aaa; line-height: 1.7; overflow-x: auto; margin: 0.8rem 0; }
+      .code-block { background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1rem 1.2rem; font-family: monospace; font-size: 0.82em; color: #aaa; line-height: 1.7; overflow-x: auto; margin: 0.8rem 0; white-space: pre; }
       .callout { background: rgba(255,255,255,0.04); border-left: 3px solid rgba(100,180,255,0.5); border-radius: 0 6px 6px 0; padding: 0.8rem 1.2rem; margin: 1rem 0; font-size: 0.9em; color: #bbb; }
       #header .inner h1, #header .inner h1 strong, #header .inner p { color: #ffffff !important; opacity: 1 !important; visibility: visible !important; }
     </style>
@@ -28,7 +31,7 @@
       <div class="inner">
         <span class="icon solid major fa-heartbeat"></span>
         <h1>La Tortuga EMR — <strong>Field-Deployed Health Tech</strong></h1>
-        <p>React Native &bull; Router-Based Mesh Sync &bull; SQLite &bull; Ollama / Llama3 &bull; Firestore Analytics &bull; Deployed Chiapas, Mexico 2026</p>
+        <p>React Native &bull; Router-Based Mesh Sync &bull; SQLite &bull; Ollama / Llama3 &bull; Firebase/Firestore Analytics &bull; Deployed Chiapas, Mexico 2026</p>
         <ul class="actions special">
           <li><a href="#overview" class="button scrolly">Overview</a></li>
           <li><a href="#demo" class="button scrolly">Watch Demo</a></li>
@@ -56,8 +59,8 @@
           real-world conditions including a mid-deployment router failure and an emergency APK push.
         </p>
         <p>
-          <strong>Role:</strong> Solo Developer (V1) &amp; Tech Lead (V2 Capstone) &nbsp;&bull;&nbsp;
-          <strong>Timeline:</strong> Built in ~2.5 months, deployed March 2026 &nbsp;&bull;&nbsp;
+          <strong>Role:</strong> Solo Developer (V1) &amp; Tech Lead (V2 Capstone) &bull;
+          <strong>Timeline:</strong> Built in ~2.5 months, deployed March 2026 &bull;
           <strong>Organization:</strong> La Tortuga Foundation
         </p>
         <div class="row gtr-150" style="margin-top: 2rem;">
@@ -87,7 +90,7 @@
               <li>Mission calendar with date range selection</li>
               <li>Bilingual PDF community &amp; trip reports</li>
               <li>AI health summaries via local Ollama / Llama3</li>
-              <li>Firestore analytics dashboard (React / Vite)</li>
+              <li>Firebase/Firestore analytics dashboard (React / Vite)</li>
               <li>PHI scrubbing before any data leaves tablet</li>
             </ul>
           </div>
@@ -142,7 +145,7 @@
             <h4>Identity &amp; Conflict System</h4>
             <ul>
               <li><strong>Azure-Peak IDs:</strong> each tablet generates a unique animal-mountain identifier (e.g. Blue-Elephant) at first launch</li>
-              <li><strong>syncVersion counters:</strong> every record increments on update; highest wins on conflict</li>
+              <li><strong>syncVersion counters:</strong> every record increments on update; highest wins</li>
               <li><strong>Field-level service merge:</strong> medical and dental completions always preserved, never overwritten</li>
               <li><strong>Auto sync:</strong> every 60 seconds; manual pull-to-refresh anytime (2-5 sec response)</li>
             </ul>
@@ -155,14 +158,14 @@
 
         <span class="layer-badge badge-cloud" style="margin-top: 1.5rem;">Layer 2 — Cloud Analytics (Optional)</span>
         <p>
-          One designated Cloud Gateway tablet uploads de-identified aggregate data to Firebase / BigQuery
+          One designated Cloud Gateway tablet uploads de-identified aggregate data to Firebase/Firestore
           when internet is available. All other tablets operate 100% offline. No PHI ever leaves a tablet.
         </p>
         <div class="code-block">Clinic Tablets (Router Mesh)
     |
 Cloud Gateway Tablet (1 designated tablet, when internet available)
     |
-Firebase / BigQuery
+Firebase / Firestore (aggregate_stats collection)
     |
 React / Vite Analytics Dashboard</div>
 
@@ -181,23 +184,25 @@ Ollama / Llama3 (running on clinic laptop)
 Bilingual AI Health Summary (ES + EN, displayed on tablet)</div>
 
         <h4 style="margin-top: 2rem;">Architecture Summary</h4>
-        <table class="arch-table">
-          <thead>
-            <tr><th>Layer</th><th>Technology</th><th>Purpose</th><th>Connectivity</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Clinic Mesh</td><td>Router WiFi + UDP 8888 + TCP 8889 + SQLite</td><td>Real-time clinic operations</td><td>Offline (router only)</td></tr>
-            <tr><td>Delta Sync</td><td>Modified records + 24hr window</td><td>Efficient sync, prevents corruption</td><td>Offline</td></tr>
-            <tr><td>Pull-to-Refresh</td><td>Manual sync trigger</td><td>Instant updates on demand</td><td>Offline</td></tr>
-            <tr><td>Identity</td><td>Azure-Peak animal-mountain IDs</td><td>Tablet identification</td><td>Offline</td></tr>
-            <tr><td>Conflict Resolution</td><td>syncVersion + field-level merge</td><td>Data consistency</td><td>Offline</td></tr>
-            <tr><td>Report Center</td><td>expo-print + expo-sharing</td><td>Bilingual PDF export</td><td>Offline</td></tr>
-            <tr><td>Community Health AI</td><td>Ollama + Llama3</td><td>AI health summaries</td><td>Offline (laptop on same WiFi)</td></tr>
-            <tr><td>Cloud Gateway</td><td>Firebase + BigQuery</td><td>Population analytics</td><td>Online (1 tablet only)</td></tr>
-            <tr><td>Analytics Dashboard</td><td>React + Vite + Firestore</td><td>Trend visualization</td><td>Online (admin access)</td></tr>
-            <tr><td>Frontend</td><td>React Native + Expo + TypeScript</td><td>Cross-platform tablet UI</td><td>Offline</td></tr>
-          </tbody>
-        </table>
+        <div class="arch-table-wrap">
+          <table class="arch-table">
+            <thead>
+              <tr><th>Layer</th><th>Technology</th><th>Purpose</th><th>Connectivity</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Clinic Mesh</td><td>Router WiFi + UDP 8888 + TCP 8889 + SQLite</td><td>Real-time clinic operations</td><td>Offline (router only)</td></tr>
+              <tr><td>Delta Sync</td><td>Modified records + 24hr window</td><td>Efficient sync, prevents corruption</td><td>Offline</td></tr>
+              <tr><td>Pull-to-Refresh</td><td>Manual sync trigger</td><td>Instant updates on demand</td><td>Offline</td></tr>
+              <tr><td>Identity</td><td>Azure-Peak animal-mountain IDs</td><td>Tablet identification</td><td>Offline</td></tr>
+              <tr><td>Conflict Resolution</td><td>syncVersion + field-level merge</td><td>Data consistency</td><td>Offline</td></tr>
+              <tr><td>Report Center</td><td>expo-print + expo-sharing</td><td>Bilingual PDF export</td><td>Offline</td></tr>
+              <tr><td>Community Health AI</td><td>Ollama + Llama3</td><td>AI health summaries</td><td>Offline (laptop on same WiFi)</td></tr>
+              <tr><td>Cloud Gateway</td><td>Firebase / Firestore</td><td>Population analytics</td><td>Online (1 tablet only)</td></tr>
+              <tr><td>Analytics Dashboard</td><td>React + Vite + Firestore</td><td>Trend visualization</td><td>Online (admin access)</td></tr>
+              <tr><td>Frontend</td><td>React Native + Expo + TypeScript</td><td>Cross-platform tablet UI</td><td>Offline</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
@@ -213,7 +218,6 @@ Bilingual AI Health Summary (ES + EN, displayed on tablet)</div>
               <span class="icon solid fa-check"></span> UDP broadcast (port 8888) + TCP sockets (port 8889)<br/>
               <span class="icon solid fa-check"></span> syncVersion conflict resolution + field-level merge<br/>
               <span class="icon solid fa-check"></span> Firebase / Firestore (de-identified cloud analytics)<br/>
-              <span class="icon solid fa-check"></span> BigQuery + Looker Studio (population health dashboard)<br/>
               <span class="icon solid fa-check"></span> Ollama / Llama3 (local AI, fully offline)<br/>
               <span class="icon solid fa-check"></span> Vite + React (analytics dashboard)<br/>
               <span class="icon solid fa-check"></span> expo-print + expo-sharing (PDF generation)<br/>
@@ -303,7 +307,7 @@ Bilingual AI Health Summary (ES + EN, displayed on tablet)</div>
         </div>
         <ul class="actions special" style="margin-top: 2rem;">
           <li><a href="../index.html#projects" class="button">Back to Projects</a></li>
-          <li><a href="/cdn-cgi/l/email-protection#650f08170a01170c0210001f5c5d5d5157250208040c094b060a08" class="button primary">Contact Me</a></li>
+          <li><a href="mailto:jmrodriguez98842@gmail.com" class="button primary">Contact Me</a></li>
         </ul>
       </div>
     </section>
@@ -313,11 +317,18 @@ Bilingual AI Health Summary (ES + EN, displayed on tablet)</div>
       <ul class="icons">
         <li><a href="https://github.com/jmr988" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
         <li><a href="https://www.linkedin.com/in/josemrodriguez918" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-        <li><a href="/cdn-cgi/l/email-protection#7e14130c111a0c17190b1b044746464a4c3e19131f1712501d1113" target="_blank" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+        <li><a href="mailto:jmrodriguez98842@gmail.com" target="_blank" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
       </ul>
       <ul class="copyright">
-        <li>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1b717669747f69727c6e7e612223232f295b7c767a727735787476">[email&#160;protected]</a></li>
+        <li>Email: jmrodriguez98842@gmail.com</li>
       </ul>
     </section>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
