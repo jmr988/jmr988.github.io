@@ -29,23 +29,18 @@
 				.intro-container p.description { font-size: 1em; }
 			}
 
-			/* ── Project Cards ── */
-			.project-grid {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 2rem;
-				margin-bottom: 2.5rem;
-			}
-			@media (max-width: 768px) {
-				.project-grid { grid-template-columns: 1fr; }
-				.project-grid-small { grid-template-columns: 1fr !important; }
-			}
-			.project-grid-small {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 2rem;
+			/* ── Section label ── */
+			.section-label {
+				display: block;
+				font-size: 0.72em;
+				font-weight: 700;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				color: #666;
+				margin-bottom: 1.4rem;
 			}
 
+			/* ── Base card ── */
 			.project-card {
 				background: #1e1e1e;
 				border-radius: 12px;
@@ -62,34 +57,39 @@
 				box-shadow: 0 12px 36px rgba(0,0,0,0.6);
 			}
 
-			/* Thumbnail container — fixed aspect ratio, no stretch */
+			/* Thumbnail */
 			.project-card .thumb {
 				position: relative;
 				width: 100%;
-				padding-top: 52%;
 				overflow: hidden;
 				background: #111;
 				flex-shrink: 0;
 			}
 			.project-card .thumb img {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
+				display: block;
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
 				object-position: center top;
-				transition: transform 0.35s ease;
+				transition: transform 0.35s ease, filter 0.35s ease;
 				filter: brightness(0.88);
 			}
 			.project-card:hover .thumb img {
-				transform: translate(-50%, -50%) scale(1.04);
+				transform: scale(1.04);
 				filter: brightness(1);
 			}
 
-			/* Play badge for video projects */
-			.project-card .thumb .play-badge {
+			/* Hero card — tall thumb */
+			.project-card--hero .thumb { height: 380px; }
+			@media (max-width: 768px) {
+				.project-card--hero .thumb { height: 200px; }
+			}
+
+			/* Secondary card — shorter thumb */
+			.project-card--secondary .thumb { height: 200px; }
+
+			/* Play badge */
+			.thumb .play-badge {
 				position: absolute;
 				bottom: 10px;
 				right: 12px;
@@ -111,7 +111,7 @@
 				opacity: 0.9;
 			}
 
-			/* Tag chips */
+			/* Tags */
 			.project-card .tags {
 				display: flex;
 				flex-wrap: wrap;
@@ -135,6 +135,7 @@
 				color: #7ec8ff;
 			}
 
+			/* Body */
 			.project-card .body {
 				padding: 1.2rem 1.4rem 1.4rem;
 				display: flex;
@@ -147,6 +148,7 @@
 				color: #fff;
 				line-height: 1.35;
 			}
+			.project-card--hero .body h3 { font-size: 1.3em; }
 			.project-card .body p {
 				font-size: 0.88em;
 				line-height: 1.6;
@@ -169,15 +171,15 @@
 			.project-card .card-link:hover { gap: 10px; }
 			.project-card .card-link::after { content: '→'; }
 
-			/* Section label */
-			.section-label {
-				font-size: 0.72em;
-				font-weight: 700;
-				letter-spacing: 0.15em;
-				text-transform: uppercase;
-				color: #666;
-				margin-bottom: 1.4rem;
-				display: block;
+			/* Secondary row — left-aligned, half width */
+			.project-row-secondary {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 2rem;
+				margin-top: 2rem;
+			}
+			@media (max-width: 768px) {
+				.project-row-secondary { grid-template-columns: 1fr; }
 			}
 		</style>
 	</head>
@@ -203,34 +205,37 @@
 
 				<span class="section-label">Featured Projects</span>
 
-				<!-- Row 1: Two main app projects -->
-				<div class="project-grid">
-
-					<div class="project-card">
-						<a href="projects/la-tortuga-emr.html" style="display:contents;">
-							<div class="thumb">
-								<img
-									src="https://img.youtube.com/vi/lq1eRwtUdqg/maxresdefault.jpg"
-									onerror="this.src='https://img.youtube.com/vi/lq1eRwtUdqg/hqdefault.jpg'"
-									alt="La Tortuga EMR walkthrough"
-								/>
-								<span class="play-badge">Demo Video</span>
-							</div>
-						</a>
-						<div class="body">
-							<div class="tags">
-								<span class="tag highlight">React Native</span>
-								<span class="tag highlight">cr-sqlite</span>
-								<span class="tag">Offline-First</span>
-								<span class="tag">Field Deployed</span>
-							</div>
-							<h3>La Tortuga EMR &amp; Dashboard</h3>
-							<p>Offline-first P2P electronic medical records system deployed on 8 tablets in rural Chiapas, Mexico. Zero internet. 100+ patients served. Includes AI-generated health reports and a Firestore analytics dashboard.</p>
-							<a class="card-link" href="projects/la-tortuga-emr.html">View Case Study</a>
+				<!-- La Tortuga: full-width hero card -->
+				<div class="project-card project-card--hero" style="margin-bottom: 0;">
+					<a href="projects/la-tortuga-emr.html" style="display:contents;">
+						<div class="thumb">
+							<img
+								src="https://img.youtube.com/vi/lq1eRwtUdqg/maxresdefault.jpg"
+								onerror="this.src='https://img.youtube.com/vi/lq1eRwtUdqg/hqdefault.jpg'"
+								alt="La Tortuga EMR walkthrough"
+							/>
+							<span class="play-badge">Demo Video</span>
 						</div>
+					</a>
+					<div class="body">
+						<div class="tags">
+							<span class="tag highlight">React Native</span>
+							<span class="tag highlight">cr-sqlite (CRDT)</span>
+							<span class="tag highlight">Ollama / Llama3</span>
+							<span class="tag highlight">Firestore</span>
+							<span class="tag">Offline-First</span>
+							<span class="tag">Field Deployed</span>
+							<span class="tag">Capstone</span>
+						</div>
+						<h3>La Tortuga EMR &amp; Dashboard</h3>
+						<p>Offline-first P2P electronic medical records system designed and built for La Tortuga Foundation's medical missions in rural Chiapas, Mexico. Deployed March 2026 across 8 tablets with zero internet, serving 100+ patients. Includes CRDT-based sync, AI-generated bilingual health reports via local Llama3, and a Firestore analytics dashboard.</p>
+						<a class="card-link" href="projects/la-tortuga-emr.html">View Case Study</a>
 					</div>
+				</div>
 
-					<div class="project-card">
+				<!-- APS: secondary card, left half only -->
+				<div class="project-row-secondary">
+					<div class="project-card project-card--secondary">
 						<a href="projects/aps-training-academy.html" style="display:contents;">
 							<div class="thumb">
 								<img
@@ -248,53 +253,12 @@
 								<span class="tag">4-Week MVP</span>
 							</div>
 							<h3>APS Training Academy — Mobile App MVP</h3>
-							<p>End-to-end MVP with parent/child registration flows, course bookings, scholarship management, and admin scheduling tools. Built in 4 weeks as sole developer.</p>
+							<p>End-to-end MVP with parent/child registration, course bookings, scholarship management, and admin scheduling. Built in 4 weeks as sole developer.</p>
 							<a class="card-link" href="projects/aps-training-academy.html">View Case Study</a>
 						</div>
 					</div>
-
-				</div>
-
-				<!-- Row 2: Web projects -->
-				<span class="section-label">Web Projects</span>
-				<div class="project-grid-small">
-
-					<div class="project-card">
-						<a href="https://simplydestinee.com/" target="_blank" style="display:contents;">
-							<div class="thumb">
-								<img src="images/simp.PNG" alt="Simply Destinee" />
-							</div>
-						</a>
-						<div class="body">
-							<div class="tags">
-								<span class="tag">WordPress</span>
-								<span class="tag">Elementor</span>
-								<span class="tag">Migration</span>
-							</div>
-							<h3>Simply Destinee</h3>
-							<p>Migrated an outdated Squarespace site to WordPress and rebuilt the homepage with Elementor and custom video edits for a dynamic, modern feel.</p>
-							<a class="card-link" href="https://simplydestinee.com/" target="_blank">Visit Site</a>
-						</div>
-					</div>
-
-					<div class="project-card">
-						<a href="https://latortugafoundation.org/" target="_blank" style="display:contents;">
-							<div class="thumb">
-								<img src="images/latort.JPG" alt="La Tortuga Foundation" />
-							</div>
-						</a>
-						<div class="body">
-							<div class="tags">
-								<span class="tag">WordPress</span>
-								<span class="tag">Redesign</span>
-								<span class="tag">Nonprofit</span>
-							</div>
-							<h3>La Tortuga Foundation</h3>
-							<p>Full website redesign for the foundation — streamlined navigation, improved mobile responsiveness, fresh visuals, and content management tools for the team.</p>
-							<a class="card-link" href="https://latortugafoundation.org/" target="_blank">Visit Site</a>
-						</div>
-					</div>
-
+					<!-- Empty right column keeps APS at half width -->
+					<div></div>
 				</div>
 
 			</div>
