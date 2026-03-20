@@ -155,14 +155,14 @@
 
         <span class="layer-badge badge-cloud" style="margin-top: 1.5rem;">Layer 2 — Cloud Analytics (Optional)</span>
         <p>
-          One designated Cloud Gateway tablet uploads de-identified aggregate data to Firebase / BigQuery
+          One designated Cloud Gateway tablet uploads de-identified aggregate data to Firebase
           when internet is available. All other tablets operate 100% offline. No PHI ever leaves a tablet.
         </p>
         <div class="code-block">Clinic Tablets (Router Mesh)
     |
 Cloud Gateway Tablet (1 designated tablet, when internet available)
     |
-Firebase / BigQuery
+Firebase / Firestore
     |
 React / Vite Analytics Dashboard</div>
 
@@ -193,7 +193,7 @@ Bilingual AI Health Summary (ES + EN, displayed on tablet)</div>
             <tr><td>Conflict Resolution</td><td>syncVersion + field-level merge</td><td>Data consistency</td><td>Offline</td></tr>
             <tr><td>Report Center</td><td>expo-print + expo-sharing</td><td>Bilingual PDF export</td><td>Offline</td></tr>
             <tr><td>Community Health AI</td><td>Ollama + Llama3</td><td>AI health summaries</td><td>Offline (laptop on same WiFi)</td></tr>
-            <tr><td>Cloud Gateway</td><td>Firebase + BigQuery</td><td>Population analytics</td><td>Online (1 tablet only)</td></tr>
+            <tr><td>Cloud Gateway</td><td>Firebase + Firestore</td><td>Population analytics</td><td>Online (1 tablet only)</td></tr>
             <tr><td>Analytics Dashboard</td><td>React + Vite + Firestore</td><td>Trend visualization</td><td>Online (admin access)</td></tr>
             <tr><td>Frontend</td><td>React Native + Expo + TypeScript</td><td>Cross-platform tablet UI</td><td>Offline</td></tr>
           </tbody>
