@@ -1,349 +1,348 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Jose's Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-			/* ── Intro ── */
-			.intro-container {
-				max-width: 900px;
-				margin: 0 auto;
-				padding: 0 20px;
-				text-align: center;
-			}
-			.intro-container h1 {
-				font-size: 2.4em;
-				line-height: 1.3em;
-				margin-bottom: 0.5em;
-			}
-			.intro-container p.description {
-				font-size: 1.1em;
-				line-height: 1.6em;
-				color: #ddd;
-			}
-			@media (max-width: 768px) {
-				.intro-container h1 { font-size: 1.8em; }
-				.intro-container p.description { font-size: 1em; }
-			}
+  <head>
+    <title>La Tortuga EMR — Case Study | Jose Rodriguez</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Offline-first P2P EMR system deployed on 8 tablets in rural Chiapas, Mexico — router-based mesh sync, bilingual intake, AI health summaries, and Firestore analytics.">
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+    <style>
+      .arch-table { width: 100%; border-collapse: collapse; font-size: 0.85em; margin-top: 1rem; }
+      .arch-table th { text-align: left; padding: 8px 12px; background: rgba(255,255,255,0.06); color: #ccc; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.1); }
+      .arch-table td { padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.06); color: #bbb; vertical-align: top; }
+      .arch-table tr:last-child td { border-bottom: none; }
+      .layer-badge { display: inline-block; font-size: 0.75em; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; border-radius: 4px; padding: 2px 7px; margin-bottom: 0.5rem; }
+      .badge-offline  { background: rgba(80,180,120,0.15); color: #6dcea0; border: 1px solid rgba(80,180,120,0.3); }
+      .badge-cloud    { background: rgba(100,160,255,0.12); color: #7eb8ff; border: 1px solid rgba(100,160,255,0.3); }
+      .badge-ai       { background: rgba(200,140,255,0.12); color: #d09fff; border: 1px solid rgba(200,140,255,0.3); }
+      .code-block { background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1rem 1.2rem; font-family: monospace; font-size: 0.82em; color: #aaa; line-height: 1.7; overflow-x: auto; margin: 0.8rem 0; }
+      .callout { background: rgba(255,255,255,0.04); border-left: 3px solid rgba(100,180,255,0.5); border-radius: 0 6px 6px 0; padding: 0.8rem 1.2rem; margin: 1rem 0; font-size: 0.9em; color: #bbb; }
+    </style>
+  </head>
+  <body class="is-preload">
 
-			/* ── Section label ── */
-			.section-label {
-				display: block;
-				font-size: 0.72em;
-				font-weight: 700;
-				letter-spacing: 0.15em;
-				text-transform: uppercase;
-				color: #666;
-				margin-bottom: 1.4rem;
-			}
+    <!-- Header -->
+    <section id="header">
+      <div class="inner">
+        <span class="icon solid major fa-heartbeat"></span>
+        <h1>La Tortuga EMR — <strong>Field-Deployed Health Tech</strong></h1>
+        <p>React Native • Router-Based Mesh Sync • SQLite • Ollama / Llama3 • Firestore Analytics • Deployed Chiapas, Mexico 2026</p>
+        <ul class="actions special">
+          <li><a href="#overview" class="button scrolly">Overview</a></li>
+          <li><a href="#demo" class="button scrolly">Watch Demo</a></li>
+          <li><a href="#architecture" class="button scrolly">Architecture</a></li>
+          <li><a href="#stack" class="button scrolly">Tech Stack</a></li>
+        </ul>
+      </div>
+    </section>
 
-			/* ── Base card ── */
-			.project-card {
-				background: #1e1e1e;
-				border-radius: 12px;
-				overflow: hidden;
-				box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-				transition: transform 0.25s ease, box-shadow 0.25s ease;
-				display: flex;
-				flex-direction: column;
-				text-decoration: none;
-				color: inherit;
-			}
-			.project-card:hover {
-				transform: translateY(-6px);
-				box-shadow: 0 12px 36px rgba(0,0,0,0.6);
-			}
+    <!-- Overview -->
+    <section id="overview" class="main style1">
+      <div class="container">
+        <header class="major"><h2>Project Overview</h2></header>
+        <p>
+          La Tortuga EMR is a tablet-first medical and dental intake system built for La Tortuga Foundation's
+          volunteer missions in rural Chiapas, Mexico. It captures patient data entirely offline, stores it
+          locally on each tablet, and syncs automatically across the clinic network via a router-based mesh —
+          because in the field, there is no internet.
+        </p>
+        <p>
+          In March 2026, I led the deployment to Tonalá, Chiapas across 8 Samsung Galaxy Tab Active3 tablets
+          connected to a shared ASUS router. The system ran a full clinic workflow: patient check-in, medical
+          and dental intake, a live waiting room queue, bilingual PDF report generation, and AI-powered
+          community health summaries via a local Llama3 instance. It served 100+ patients and survived
+          real-world conditions including a mid-deployment router failure and an emergency APK push.
+        </p>
+        <p>
+          <strong>Role:</strong> Solo Developer (V1) &amp; Tech Lead (V2 Capstone) &nbsp;•&nbsp;
+          <strong>Timeline:</strong> Built in ~2.5 months, deployed March 2026 &nbsp;•&nbsp;
+          <strong>Organization:</strong> La Tortuga Foundation
+        </p>
 
-			/* Thumbnail */
-			.project-card .thumb {
-				position: relative;
-				width: 100%;
-				overflow: hidden;
-				background: #111;
-				flex-shrink: 0;
-			}
-			.project-card .thumb img {
-				display: block;
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				object-position: center top;
-				transition: transform 0.35s ease, filter 0.35s ease;
-				filter: brightness(0.88);
-			}
-			.project-card:hover .thumb img {
-				transform: scale(1.04);
-				filter: brightness(1);
-			}
+        <div class="row gtr-150" style="margin-top: 2rem;">
+          <div class="col-4 col-12-medium">
+            <h4>Mission Goals</h4>
+            <ul>
+              <li>Medical &amp; dental EMR for structured intake</li>
+              <li>Offline-first — zero internet dependency</li>
+              <li>Bilingual UI (English / Spanish)</li>
+              <li>Lightweight &amp; privacy-aware</li>
+              <li>Built for tablets, no keyboard required</li>
+            </ul>
+          </div>
+          <div class="col-4 col-12-medium">
+            <h4>Core Features</h4>
+            <ul>
+              <li>Router-based mesh sync across all tablets</li>
+              <li>Pull-to-refresh for instant manual sync</li>
+              <li>Visit-based workflow with short codes</li>
+              <li>Role-based access (Clinician / Admin / Viewer)</li>
+              <li>De-identified cloud export for analytics</li>
+            </ul>
+          </div>
+          <div class="col-4 col-12-medium">
+            <h4>Reporting &amp; AI</h4>
+            <ul>
+              <li>Mission calendar with date range selection</li>
+              <li>Bilingual PDF community &amp; trip reports</li>
+              <li>AI health summaries via local Ollama / Llama3</li>
+              <li>Firestore analytics dashboard (React / Vite)</li>
+              <li>PHI scrubbing before any data leaves tablet</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-			/* Hero card — tall thumb */
-			.project-card--hero .thumb { height: 380px; }
-			@media (max-width: 768px) {
-				.project-card--hero .thumb { height: 200px; }
-			}
+    <!-- Demo -->
+    <section id="demo" class="main style2">
+      <div class="container">
+        <header class="major"><h2>Demo Video</h2></header>
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
+          <iframe
+            src="https://www.youtube.com/embed/lq1eRwtUdqg"
+            title="La Tortuga EMR — Demo"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+        </div>
+      </div>
+    </section>
 
-			/* Secondary card — shorter thumb */
-			.project-card--secondary .thumb { height: 200px; }
+    <!-- Architecture -->
+    <section id="architecture" class="main style1">
+      <div class="container">
+        <header class="major"><h2>System Architecture</h2></header>
+        <p>
+          The system is built on three independent layers. The clinic mesh handles all real-time operations
+          completely offline. The cloud layer is optional and only used by a single designated tablet when
+          internet is available. The reporting and AI layer runs fully offline on the local network.
+        </p>
 
-			/* Play badge */
-			.thumb .play-badge {
-				position: absolute;
-				bottom: 10px;
-				right: 12px;
-				background: rgba(0,0,0,0.65);
-				border: 1px solid rgba(255,255,255,0.2);
-				border-radius: 20px;
-				padding: 4px 10px 4px 8px;
-				font-size: 0.72em;
-				color: #fff;
-				display: flex;
-				align-items: center;
-				gap: 5px;
-				backdrop-filter: blur(4px);
-				pointer-events: none;
-			}
-			.play-badge::before {
-				content: '▶';
-				font-size: 0.75em;
-				opacity: 0.9;
-			}
+        <!-- Layer 1 -->
+        <span class="layer-badge badge-offline">Layer 1 — Clinic Mesh (Offline)</span>
+        <p>
+          The primary operational layer runs within each clinic using a standard WiFi router. Tablets
+          discover each other automatically via UDP broadcast on port 8888, then establish TCP connections
+          on port 8889 for bidirectional delta sync. No special hardware is required.
+        </p>
+        <div class="row gtr-150">
+          <div class="col-6 col-12-medium">
+            <h4>Mesh Sync Flow</h4>
+            <ol>
+              <li><strong>Discovery:</strong> tablets broadcast UDP packets — peers are detected automatically</li>
+              <li><strong>Connection:</strong> TCP channel opened on port 8889, bidirectional</li>
+              <li><strong>Delta Sync:</strong> only records modified since last sync are sent (24-hour window for reconnects)</li>
+              <li><strong>Conflict Resolution:</strong> higher <code>syncVersion</code> counter wins for metadata; services always merged field-by-field</li>
+              <li><strong>Confirmation:</strong> acknowledgment closes the cycle; timestamp updated for next sync</li>
+            </ol>
+          </div>
+          <div class="col-6 col-12-medium">
+            <h4>Identity &amp; Conflict System</h4>
+            <ul>
+              <li><strong>Azure-Peak IDs:</strong> each tablet generates a unique animal-mountain identifier (e.g. "Blue-Elephant") at first launch — collision-resistant and human-readable</li>
+              <li><strong>syncVersion counters:</strong> every record increments on update; highest wins on conflict</li>
+              <li><strong>Field-level service merge:</strong> medical and dental completions are always preserved, never overwritten</li>
+              <li><strong>Auto sync:</strong> every 60 seconds; manual pull-to-refresh anytime (2–5 sec response)</li>
+            </ul>
+          </div>
+        </div>
 
-			/* Tags */
-			.project-card .tags {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 6px;
-				margin-bottom: 0.6rem;
-			}
-			.project-card .tag {
-				font-size: 0.68em;
-				font-weight: 600;
-				letter-spacing: 0.05em;
-				text-transform: uppercase;
-				background: rgba(255,255,255,0.07);
-				border: 1px solid rgba(255,255,255,0.12);
-				border-radius: 4px;
-				padding: 2px 7px;
-				color: #aaa;
-			}
-			.tag.highlight {
-				background: rgba(100,180,255,0.12);
-				border-color: rgba(100,180,255,0.3);
-				color: #7ec8ff;
-			}
+        <div class="callout">
+          <strong>Key design principle:</strong> each tablet holds a complete local copy of all clinic data. There is no single point of failure — if any tablet goes down, every other tablet continues operating independently.
+        </div>
 
-			/* Body */
-			.project-card .body {
-				padding: 1.2rem 1.4rem 1.4rem;
-				display: flex;
-				flex-direction: column;
-				flex-grow: 1;
-			}
-			.project-card .body h3 {
-				font-size: 1.05em;
-				margin: 0 0 0.45rem;
-				color: #fff;
-				line-height: 1.35;
-			}
-			.project-card--hero .body h3 { font-size: 1.3em; }
-			.project-card .body p {
-				font-size: 0.88em;
-				line-height: 1.6;
-				color: #aaa;
-				margin: 0 0 1rem;
-				flex-grow: 1;
-			}
-			.project-card .card-link {
-				display: inline-flex;
-				align-items: center;
-				gap: 6px;
-				font-size: 0.82em;
-				font-weight: 600;
-				color: #7ec8ff;
-				text-decoration: none;
-				letter-spacing: 0.03em;
-				margin-top: auto;
-				transition: gap 0.2s ease;
-			}
-			.project-card .card-link:hover { gap: 10px; }
-			.project-card .card-link::after { content: '→'; }
+        <!-- Layer 2 -->
+        <span class="layer-badge badge-cloud" style="margin-top: 1.5rem;">Layer 2 — Cloud Analytics (Optional)</span>
+        <p>
+          One designated "Cloud Gateway" tablet uploads de-identified aggregate data to Firebase / BigQuery
+          when internet is available. All other tablets operate 100% offline and are never affected by
+          connectivity. No PHI — names, DOBs, or IDs — ever leaves a tablet.
+        </p>
+        <div class="code-block">
+Clinic Tablets (Router Mesh)
+    ↓
+Cloud Gateway Tablet (1 designated tablet, when internet available)
+    ↓
+Firebase / BigQuery
+    ↓
+React / Vite Analytics Dashboard
+        </div>
 
-			/* Secondary row — left-aligned, half width */
-			.project-row-secondary {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 2rem;
-				margin-top: 2rem;
-			}
-			@media (max-width: 768px) {
-				.project-row-secondary { grid-template-columns: 1fr; }
-			}
-		</style>
-	</head>
-	<body class="is-preload">
+        <!-- Layer 3 -->
+        <span class="layer-badge badge-ai" style="margin-top: 1.5rem;">Layer 3 — Offline Reporting &amp; AI</span>
+        <p>
+          The Report Center generates bilingual PDFs directly on-device. The AI Community Health feature
+          aggregates and anonymizes patient data locally, then POSTs to a local Ollama / Llama3 instance
+          running on a laptop connected to the same clinic WiFi — no internet required at any step.
+        </p>
+        <div class="code-block">
+Clinic Tablets (Router Mesh)
+    ↓
+Community Health Aggregator (anonymizes data locally — no PHI)
+    ↓  (WiFi only, no internet)
+Ollama / Llama3 (running on clinic laptop)
+    ↓
+Bilingual AI Health Summary (ES + EN, displayed on tablet)
+        </div>
 
-		<!-- Header -->
-		<section id="header">
-			<div class="inner intro-container">
-				<span class="icon solid major fa-laptop-code"></span>
-				<h1>Hi, I'm <strong>Jose Rodriguez</strong></h1>
-				<p class="description">
-					Software developer and community technologist building tools where they matter most. I'm completing my <strong>B.S. in Computer Science</strong> at <strong>Aurora University</strong> (May 2026), and my work sits at the intersection of <strong>mobile development</strong>, <strong>data systems</strong>, and <strong>social impact</strong>. I designed and field-deployed <strong>La Tortuga EMR</strong>, an offline-first electronic medical records system that ran on 8 tablets with zero internet in rural Chiapas, Mexico, serving 100+ patients. I also build and maintain large-scale web systems at <strong>Waubonsee Community College</strong> and freelance in <strong>WordPress development</strong>. I care about making technology work for people, especially communities that are usually an afterthought.
-				</p>
-				<ul class="actions special" style="margin-top: 1.5rem;">
-					<li><a href="#projects" class="button scrolly">Featured Work</a></li>
-				</ul>
-			</div>
-		</section>
+        <!-- Architecture table -->
+        <h4 style="margin-top: 2rem;">Architecture Summary</h4>
+        <table class="arch-table">
+          <thead>
+            <tr><th>Layer</th><th>Technology</th><th>Purpose</th><th>Connectivity</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Clinic Mesh</td><td>Router WiFi + UDP 8888 + TCP 8889 + SQLite</td><td>Real-time clinic operations</td><td>Offline (router only)</td></tr>
+            <tr><td>Delta Sync</td><td>Modified records + 24hr window</td><td>Efficient sync, prevents corruption</td><td>Offline</td></tr>
+            <tr><td>Pull-to-Refresh</td><td>Manual sync trigger</td><td>Instant updates on demand</td><td>Offline</td></tr>
+            <tr><td>Identity</td><td>Azure-Peak animal-mountain IDs</td><td>Tablet identification</td><td>Offline</td></tr>
+            <tr><td>Conflict Resolution</td><td>syncVersion + field-level merge</td><td>Data consistency</td><td>Offline</td></tr>
+            <tr><td>Report Center</td><td>expo-print + expo-sharing</td><td>Bilingual PDF export</td><td>Offline</td></tr>
+            <tr><td>Community Health AI</td><td>Ollama + Llama3</td><td>AI health summaries</td><td>Offline (laptop on same WiFi)</td></tr>
+            <tr><td>Cloud Gateway</td><td>Firebase + BigQuery</td><td>Population analytics</td><td>Online (1 tablet only)</td></tr>
+            <tr><td>Analytics Dashboard</td><td>React + Vite + Firestore</td><td>Trend visualization</td><td>Online (admin access)</td></tr>
+            <tr><td>Frontend</td><td>React Native + Expo + TypeScript</td><td>Cross-platform tablet UI</td><td>Offline</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-		<!-- Projects -->
-		<section id="projects" class="main style1 special">
-			<div class="container">
+    <!-- Tech Stack + Features -->
+    <section id="stack" class="main style2">
+      <div class="container">
+        <div class="row gtr-150">
+          <div class="col-6 col-12-medium">
+            <header class="major"><h2>Tech Stack</h2></header>
+            <p>
+              <span class="icon solid fa-check"></span> React Native + TypeScript + Expo<br/>
+              <span class="icon solid fa-check"></span> SQLite via op-sqlite (local storage)<br/>
+              <span class="icon solid fa-check"></span> UDP broadcast (port 8888) + TCP sockets (port 8889)<br/>
+              <span class="icon solid fa-check"></span> syncVersion conflict resolution + field-level merge<br/>
+              <span class="icon solid fa-check"></span> Firebase / Firestore (de-identified cloud analytics)<br/>
+              <span class="icon solid fa-check"></span> BigQuery + Looker Studio (population health dashboard)<br/>
+              <span class="icon solid fa-check"></span> Ollama / Llama3 (local AI, fully offline)<br/>
+              <span class="icon solid fa-check"></span> Vite + React (analytics dashboard)<br/>
+              <span class="icon solid fa-check"></span> expo-print + expo-sharing (PDF generation)<br/>
+              <span class="icon solid fa-check"></span> ADB + Git (device management &amp; version control)
+            </p>
+          </div>
+          <div class="col-6 col-12-medium">
+            <header class="major"><h2>Data Model</h2></header>
+            <p>
+              <span class="icon solid fa-check"></span> <strong>Patient → Visit → IntakeForm</strong> (Medical / Dental)<br/>
+              <span class="icon solid fa-check"></span> Vitals: BP, HR, Temp, O₂, Weight via numeric keypad<br/>
+              <span class="icon solid fa-check"></span> Pain scale: 0–10 slider or tap buttons<br/>
+              <span class="icon solid fa-check"></span> Systems review: Neuro → ENT → Cardiac → Respiratory → GI → Musculoskeletal → Skin<br/>
+              <span class="icon solid fa-check"></span> Medications: selectable common list + free-text "Other"<br/>
+              <span class="icon solid fa-check"></span> Touch-optimized: 48px targets, large checkboxes, stylus and glove-friendly<br/>
+              <span class="icon solid fa-check"></span> Role-based access: Clinician / Admin / Viewer<br/>
+              <span class="icon solid fa-check"></span> Bilingual toggle: English ⇄ Español on all patient-facing screens
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-				<span class="section-label">Featured Projects</span>
+    <!-- Field Challenges -->
+    <section class="main style1">
+      <div class="container">
+        <header class="major"><h2>Field Challenges &amp; Solutions</h2></header>
+        <div class="row gtr-150">
+          <div class="col-6 col-12-medium">
+            <ul>
+              <li>
+                <strong>Router failure mid-deployment:</strong> tablets lost mesh connectivity on day 6.
+                Each tablet's local SQLite data remained intact. Designed a post-trip identity-based SQL
+                merge process to reconcile ~12 duplicate patient pairs created during the isolated period.
+              </li>
+              <li>
+                <strong>UTC timezone rollover bug:</strong> patient records were dating to the wrong day
+                at midnight local time. Identified pre-deployment and patched with a shared <code>dateUtils.ts</code>
+                local-time utility across all date-sensitive screens.
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-12-medium">
+            <ul>
+              <li>
+                <strong>Partial-save crashes:</strong> an edge case in the multi-step intake flow caused
+                incomplete records on app resume. Pushed emergency APK v2.1 mid-mission via ADB to all
+                8 tablets without disrupting clinic flow.
+              </li>
+              <li>
+                <strong>Community dropdown mismatches:</strong> tablet communities fell out of sync
+                during initial propagation. Debugged data seeding logic in the field with targeted
+                SQL queries and corrected the community assignment across all devices.
+              </li>
+            </ul>
+          </div>
+        </div>
 
-				<!-- La Tortuga: full-width hero card -->
-				<div class="project-card project-card--hero" style="margin-bottom: 0;">
-					<a href="projects/la-tortuga-emr.html" style="display:contents;">
-						<div class="thumb">
-							<img
-								src="https://img.youtube.com/vi/lq1eRwtUdqg/maxresdefault.jpg"
-								onerror="this.src='https://img.youtube.com/vi/lq1eRwtUdqg/hqdefault.jpg'"
-								alt="La Tortuga EMR walkthrough"
-							/>
-							<span class="play-badge">Demo Video</span>
-						</div>
-					</a>
-					<div class="body">
-						<div class="tags">
-							<span class="tag highlight">React Native</span>
-							<span class="tag highlight">cr-sqlite (CRDT)</span>
-							<span class="tag highlight">Ollama / Llama3</span>
-							<span class="tag highlight">Firestore</span>
-							<span class="tag">Offline-First</span>
-							<span class="tag">Field Deployed</span>
-							<span class="tag">Capstone</span>
-						</div>
-						<h3>La Tortuga EMR &amp; Dashboard</h3>
-						<p>Offline-first P2P electronic medical records system designed and built for La Tortuga Foundation's medical missions in rural Chiapas, Mexico. Deployed March 2026 across 8 tablets with zero internet, serving 100+ patients. Includes CRDT-based sync, AI-generated bilingual health reports via local Llama3, and a Firestore analytics dashboard.</p>
-						<a class="card-link" href="projects/la-tortuga-emr.html">View Case Study</a>
-					</div>
-				</div>
+        <h4 style="margin-top: 1.5rem;">Recent Improvements (February – March 2026)</h4>
+        <div class="row gtr-150">
+          <div class="col-6 col-12-medium">
+            <ul>
+              <li><strong>Report Center:</strong> unified screen replacing separate generators — mission calendar, single/multi-day selection, bilingual PDF preview and share</li>
+              <li><strong>Community Health AI (beta):</strong> local Llama3 via Ollama, anonymized aggregation before any AI processing, configurable host IP from within the app</li>
+              <li><strong>Edit Patient Screen:</strong> update records directly from Visit Hub, changes sync automatically</li>
+            </ul>
+          </div>
+          <div class="col-6 col-12-medium">
+            <ul>
+              <li><strong>Router mesh migration:</strong> moved from WiFi Direct to standard router networking — simpler setup, better reliability, works with existing clinic infrastructure</li>
+              <li><strong>Delta sync + 24-hour window:</strong> only changed records sent, faster sync, prevents name corruption bug</li>
+              <li><strong>Database safety:</strong> race condition fixes, initialization checks, graceful edge case handling</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-				<!-- APS: secondary card, left half only -->
-				<div class="project-row-secondary">
-					<div class="project-card project-card--secondary">
-						<a href="projects/aps-training-academy.html" style="display:contents;">
-							<div class="thumb">
-								<img
-									src="https://img.youtube.com/vi/eJEO7Izsesw/maxresdefault.jpg"
-									onerror="this.src='https://img.youtube.com/vi/eJEO7Izsesw/hqdefault.jpg'"
-									alt="APS Training Academy MVP Demo"
-								/>
-								<span class="play-badge">Demo Video</span>
-							</div>
-						</a>
-						<div class="body">
-							<div class="tags">
-								<span class="tag highlight">React Native</span>
-								<span class="tag highlight">Firebase</span>
-								<span class="tag">4-Week MVP</span>
-							</div>
-							<h3>APS Training Academy — Mobile App MVP</h3>
-							<p>End-to-end MVP with parent/child registration, course bookings, scholarship management, and admin scheduling. Built in 4 weeks as sole developer.</p>
-							<a class="card-link" href="projects/aps-training-academy.html">View Case Study</a>
-						</div>
-					</div>
-					<!-- Empty right column keeps APS at half width -->
-					<div></div>
-				</div>
+    <!-- Outcome -->
+    <section class="main style2">
+      <div class="container">
+        <header class="major"><h2>Outcome &amp; Impact</h2></header>
+        <div class="row gtr-150">
+          <div class="col-6 col-12-medium">
+            <h4>Deployment Results</h4>
+            <ul>
+              <li>100+ patients served across a multi-day clinic in Tonalá, Chiapas with zero paper records</li>
+              <li>All 8 tablets operated reliably in a zero-internet environment for the full mission</li>
+              <li>Emergency APK push mid-mission resolved without disrupting patient flow</li>
+              <li>Post-trip SQL cleanup reconciled all duplicate records from the router failure event</li>
+            </ul>
+          </div>
+          <div class="col-6 col-12-medium">
+            <h4>What's Next</h4>
+            <ul>
+              <li>V2 in active development as an Aurora University capstone — 20-table schema, cr-sqlite CRDT sync, full ERD documentation</li>
+              <li>AI Community Health Summaries moving toward production validation</li>
+              <li>Idempotency improvements for creation endpoints to further harden sync</li>
+              <li>Planned: inventory manager for clinic supplies and medications</li>
+              <li>Planned: waiting queue auto-triage to prioritize patients by symptom severity</li>
+            </ul>
+          </div>
+        </div>
+        <ul class="actions special" style="margin-top: 2rem;">
+          <li><a href="../index.html#projects" class="button">Back to Projects</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#d9b3b4abb6bdabb0beacbca3e0e1e1edeb99beb4b8b0b5f7bab6b4" class="button primary">Contact Me</a></li>
+        </ul>
+      </div>
+    </section>
 
-			</div>
-		</section>
+    <!-- Footer -->
+    <section id="footer">
+      <ul class="icons">
+        <li><a href="https://github.com/jmr988" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+        <li><a href="https://www.linkedin.com/in/josemrodriguez918" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+        <li><a href="/cdn-cgi/l/email-protection#82e8eff0ede6f0ebe5f7e7f8bbbabab6b0c2e5efe3ebeeace1edef" target="_blank" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+      </ul>
+      <ul class="copyright">
+        <li>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f79d9a859893859e9082928dcecfcfc3c5b7909a969e9bd994989a">[email&#160;protected]</a></li>
+      </ul>
+    </section>
 
-		<!-- About Me -->
-		<section id="one" class="main style1">
-			<div class="container">
-				<div class="row gtr-150">
-					<div class="col-6 col-12-medium">
-						<header class="major">
-							<h2>About Me</h2>
-						</header>
-						<p>
-							With experience in both WordPress and Drupal, I've worked on projects ranging from small client websites to large-scale educational platforms. My strengths lie in creating seamless user experiences and maintaining high-quality web content. I'm also skilled in problem-solving and enjoy applying technology to drive solutions that enhance user interaction. As I continue my studies, I'm eager to expand my expertise and contribute to projects that make a meaningful impact.
-						</p>
-					</div>
-					<div class="col-6 col-12-medium imp-medium">
-						<span class="image fit"><img src="images/Jose 2.jpg" alt="Jose Rodriguez" /></span>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Skills -->
-		<section id="two" class="main style2">
-			<div class="container">
-				<div class="row gtr-150">
-					<div class="col-6 col-12-medium">
-						<ul class="major-icons">
-							<li><span class="icon solid style1 major fa-code"></span></li>
-							<li><span class="icon solid style2 major fa-bolt"></span></li>
-							<li><span class="icon solid style3 major fa-camera-retro"></span></li>
-							<li><span class="icon solid style4 major fa-cog"></span></li>
-							<li><span class="icon solid style5 major fa-desktop"></span></li>
-							<li><span class="icon solid style6 major fa-calendar"></span></li>
-						</ul>
-					</div>
-					<div class="col-6 col-12-medium">
-						<header class="major">
-							<h2>Languages I Speak:</h2>
-						</header>
-						<ul style="list-style-type:none;">
-							<li>HTML</li>
-							<li>CSS</li>
-							<li>Python</li>
-							<li>Java</li>
-						</ul>
-						<header class="major">
-							<h2>Database Knowledge:</h2>
-						</header>
-						<ul style="list-style-type:none;">
-							<li>MySQL</li>
-							<li>phpMyAdmin</li>
-						</ul>
-						<header class="major">
-							<h2>Dev Tools:</h2>
-						</header>
-						<ul style="list-style-type:none;">
-							<li>Git</li>
-							<li>GitHub</li>
-							<li>Chrome Developer Tools</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Footer -->
-		<section id="footer">
-			<ul class="icons">
-				<li><a href="https://github.com/jmr988" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-				<li><a href="https://www.linkedin.com/in/josemrodriguez918" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-				<li><a href="mailto:jmrodriguez98842@gmail.com" target="_blank" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-			</ul>
-			<ul class="copyright">
-				<li>Email: jmrodriguez98842@gmail.com</li>
-			</ul>
-		</section>
-
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
-	</body>
-</html>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src
