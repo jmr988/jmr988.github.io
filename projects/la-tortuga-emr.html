@@ -13,12 +13,11 @@
       .arch-table td { padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.06); color: #bbb; vertical-align: top; }
       .arch-table tr:last-child td { border-bottom: none; }
       .layer-badge { display: inline-block; font-size: 0.75em; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; border-radius: 4px; padding: 2px 7px; margin-bottom: 0.5rem; }
-      .badge-offline  { background: rgba(80,180,120,0.15); color: #6dcea0; border: 1px solid rgba(80,180,120,0.3); }
-      .badge-cloud    { background: rgba(100,160,255,0.12); color: #7eb8ff; border: 1px solid rgba(100,160,255,0.3); }
-      .badge-ai       { background: rgba(200,140,255,0.12); color: #d09fff; border: 1px solid rgba(200,140,255,0.3); }
+      .badge-offline { background: rgba(80,180,120,0.15); color: #6dcea0; border: 1px solid rgba(80,180,120,0.3); }
+      .badge-cloud   { background: rgba(100,160,255,0.12); color: #7eb8ff; border: 1px solid rgba(100,160,255,0.3); }
+      .badge-ai      { background: rgba(200,140,255,0.12); color: #d09fff; border: 1px solid rgba(200,140,255,0.3); }
       .code-block { background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1rem 1.2rem; font-family: monospace; font-size: 0.82em; color: #aaa; line-height: 1.7; overflow-x: auto; margin: 0.8rem 0; }
       .callout { background: rgba(255,255,255,0.04); border-left: 3px solid rgba(100,180,255,0.5); border-radius: 0 6px 6px 0; padding: 0.8rem 1.2rem; margin: 1rem 0; font-size: 0.9em; color: #bbb; }
-      #header { background-image: url('../images/bg.jpg'); }
       #header .inner h1, #header .inner h1 strong, #header .inner p { color: #ffffff !important; opacity: 1 !important; visibility: visible !important; }
     </style>
   </head>
@@ -29,7 +28,7 @@
       <div class="inner">
         <span class="icon solid major fa-heartbeat"></span>
         <h1>La Tortuga EMR — <strong>Field-Deployed Health Tech</strong></h1>
-        <p>React Native • Router-Based Mesh Sync • SQLite • Ollama / Llama3 • Firestore Analytics • Deployed Chiapas, Mexico 2026</p>
+        <p>React Native &bull; Router-Based Mesh Sync &bull; SQLite &bull; Ollama / Llama3 &bull; Firestore Analytics &bull; Deployed Chiapas, Mexico 2026</p>
         <ul class="actions special">
           <li><a href="#overview" class="button scrolly">Overview</a></li>
           <li><a href="#demo" class="button scrolly">Watch Demo</a></li>
@@ -46,28 +45,27 @@
         <p>
           La Tortuga EMR is a tablet-first medical and dental intake system built for La Tortuga Foundation's
           volunteer missions in rural Chiapas, Mexico. It captures patient data entirely offline, stores it
-          locally on each tablet, and syncs automatically across the clinic network via a router-based mesh —
+          locally on each tablet, and syncs automatically across the clinic network via a router-based mesh
           because in the field, there is no internet.
         </p>
         <p>
-          In March 2026, I led the deployment to Tonalá, Chiapas across 8 Samsung Galaxy Tab Active3 tablets
+          In March 2026, I led the deployment to Tonala, Chiapas across 8 Samsung Galaxy Tab Active3 tablets
           connected to a shared ASUS router. The system ran a full clinic workflow: patient check-in, medical
           and dental intake, a live waiting room queue, bilingual PDF report generation, and AI-powered
           community health summaries via a local Llama3 instance. It served 100+ patients and survived
           real-world conditions including a mid-deployment router failure and an emergency APK push.
         </p>
         <p>
-          <strong>Role:</strong> Solo Developer (V1) &amp; Tech Lead (V2 Capstone) &nbsp;•&nbsp;
-          <strong>Timeline:</strong> Built in ~2.5 months, deployed March 2026 &nbsp;•&nbsp;
+          <strong>Role:</strong> Solo Developer (V1) &amp; Tech Lead (V2 Capstone) &nbsp;&bull;&nbsp;
+          <strong>Timeline:</strong> Built in ~2.5 months, deployed March 2026 &nbsp;&bull;&nbsp;
           <strong>Organization:</strong> La Tortuga Foundation
         </p>
-
         <div class="row gtr-150" style="margin-top: 2rem;">
           <div class="col-4 col-12-medium">
             <h4>Mission Goals</h4>
             <ul>
               <li>Medical &amp; dental EMR for structured intake</li>
-              <li>Offline-first — zero internet dependency</li>
+              <li>Offline-first, zero internet dependency</li>
               <li>Bilingual UI (English / Spanish)</li>
               <li>Lightweight &amp; privacy-aware</li>
               <li>Built for tablets, no keyboard required</li>
@@ -104,7 +102,7 @@
         <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
           <iframe
             src="https://www.youtube.com/embed/lq1eRwtUdqg"
-            title="La Tortuga EMR — Demo"
+            title="La Tortuga EMR Demo"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
@@ -123,7 +121,6 @@
           internet is available. The reporting and AI layer runs fully offline on the local network.
         </p>
 
-        <!-- Layer 1 -->
         <span class="layer-badge badge-offline">Layer 1 — Clinic Mesh (Offline)</span>
         <p>
           The primary operational layer runs within each clinic using a standard WiFi router. Tablets
@@ -134,63 +131,55 @@
           <div class="col-6 col-12-medium">
             <h4>Mesh Sync Flow</h4>
             <ol>
-              <li><strong>Discovery:</strong> tablets broadcast UDP packets — peers are detected automatically</li>
+              <li><strong>Discovery:</strong> tablets broadcast UDP packets, peers detected automatically</li>
               <li><strong>Connection:</strong> TCP channel opened on port 8889, bidirectional</li>
               <li><strong>Delta Sync:</strong> only records modified since last sync are sent (24-hour window for reconnects)</li>
-              <li><strong>Conflict Resolution:</strong> higher <code>syncVersion</code> counter wins for metadata; services always merged field-by-field</li>
+              <li><strong>Conflict Resolution:</strong> higher syncVersion counter wins; services always merged field-by-field</li>
               <li><strong>Confirmation:</strong> acknowledgment closes the cycle; timestamp updated for next sync</li>
             </ol>
           </div>
           <div class="col-6 col-12-medium">
             <h4>Identity &amp; Conflict System</h4>
             <ul>
-              <li><strong>Azure-Peak IDs:</strong> each tablet generates a unique animal-mountain identifier (e.g. "Blue-Elephant") at first launch — collision-resistant and human-readable</li>
+              <li><strong>Azure-Peak IDs:</strong> each tablet generates a unique animal-mountain identifier (e.g. Blue-Elephant) at first launch</li>
               <li><strong>syncVersion counters:</strong> every record increments on update; highest wins on conflict</li>
-              <li><strong>Field-level service merge:</strong> medical and dental completions are always preserved, never overwritten</li>
-              <li><strong>Auto sync:</strong> every 60 seconds; manual pull-to-refresh anytime (2–5 sec response)</li>
+              <li><strong>Field-level service merge:</strong> medical and dental completions always preserved, never overwritten</li>
+              <li><strong>Auto sync:</strong> every 60 seconds; manual pull-to-refresh anytime (2-5 sec response)</li>
             </ul>
           </div>
         </div>
 
         <div class="callout">
-          <strong>Key design principle:</strong> each tablet holds a complete local copy of all clinic data. There is no single point of failure — if any tablet goes down, every other tablet continues operating independently.
+          <strong>Key design principle:</strong> each tablet holds a complete local copy of all clinic data. There is no single point of failure. If any tablet goes down, every other tablet continues operating independently.
         </div>
 
-        <!-- Layer 2 -->
         <span class="layer-badge badge-cloud" style="margin-top: 1.5rem;">Layer 2 — Cloud Analytics (Optional)</span>
         <p>
-          One designated "Cloud Gateway" tablet uploads de-identified aggregate data to Firebase / BigQuery
-          when internet is available. All other tablets operate 100% offline and are never affected by
-          connectivity. No PHI — names, DOBs, or IDs — ever leaves a tablet.
+          One designated Cloud Gateway tablet uploads de-identified aggregate data to Firebase / BigQuery
+          when internet is available. All other tablets operate 100% offline. No PHI ever leaves a tablet.
         </p>
-        <div class="code-block">
-Clinic Tablets (Router Mesh)
-    ↓
+        <div class="code-block">Clinic Tablets (Router Mesh)
+    |
 Cloud Gateway Tablet (1 designated tablet, when internet available)
-    ↓
+    |
 Firebase / BigQuery
-    ↓
-React / Vite Analytics Dashboard
-        </div>
+    |
+React / Vite Analytics Dashboard</div>
 
-        <!-- Layer 3 -->
         <span class="layer-badge badge-ai" style="margin-top: 1.5rem;">Layer 3 — Offline Reporting &amp; AI</span>
         <p>
           The Report Center generates bilingual PDFs directly on-device. The AI Community Health feature
-          aggregates and anonymizes patient data locally, then POSTs to a local Ollama / Llama3 instance
-          running on a laptop connected to the same clinic WiFi — no internet required at any step.
+          aggregates and anonymizes patient data locally, then sends it to a local Ollama / Llama3 instance
+          running on a laptop on the same clinic WiFi. No internet required at any step.
         </p>
-        <div class="code-block">
-Clinic Tablets (Router Mesh)
-    ↓
-Community Health Aggregator (anonymizes data locally — no PHI)
-    ↓  (WiFi only, no internet)
+        <div class="code-block">Clinic Tablets (Router Mesh)
+    |
+Community Health Aggregator (anonymizes data locally, no PHI)
+    |  (WiFi only, no internet)
 Ollama / Llama3 (running on clinic laptop)
-    ↓
-Bilingual AI Health Summary (ES + EN, displayed on tablet)
-        </div>
+    |
+Bilingual AI Health Summary (ES + EN, displayed on tablet)</div>
 
-        <!-- Architecture table -->
         <h4 style="margin-top: 2rem;">Architecture Summary</h4>
         <table class="arch-table">
           <thead>
@@ -234,14 +223,14 @@ Bilingual AI Health Summary (ES + EN, displayed on tablet)
           <div class="col-6 col-12-medium">
             <header class="major"><h2>Data Model</h2></header>
             <p>
-              <span class="icon solid fa-check"></span> <strong>Patient → Visit → IntakeForm</strong> (Medical / Dental)<br/>
-              <span class="icon solid fa-check"></span> Vitals: BP, HR, Temp, O₂, Weight via numeric keypad<br/>
-              <span class="icon solid fa-check"></span> Pain scale: 0–10 slider or tap buttons<br/>
-              <span class="icon solid fa-check"></span> Systems review: Neuro → ENT → Cardiac → Respiratory → GI → Musculoskeletal → Skin<br/>
-              <span class="icon solid fa-check"></span> Medications: selectable common list + free-text "Other"<br/>
+              <span class="icon solid fa-check"></span> <strong>Patient to Visit to IntakeForm</strong> (Medical / Dental)<br/>
+              <span class="icon solid fa-check"></span> Vitals: BP, HR, Temp, O2, Weight via numeric keypad<br/>
+              <span class="icon solid fa-check"></span> Pain scale: 0-10 slider or tap buttons<br/>
+              <span class="icon solid fa-check"></span> Systems review: Neuro, ENT, Cardiac, Respiratory, GI, Musculoskeletal, Skin<br/>
+              <span class="icon solid fa-check"></span> Medications: selectable common list + free-text Other<br/>
               <span class="icon solid fa-check"></span> Touch-optimized: 48px targets, large checkboxes, stylus and glove-friendly<br/>
               <span class="icon solid fa-check"></span> Role-based access: Clinician / Admin / Viewer<br/>
-              <span class="icon solid fa-check"></span> Bilingual toggle: English ⇄ Español on all patient-facing screens
+              <span class="icon solid fa-check"></span> Bilingual toggle: English and Spanish on all patient-facing screens
             </p>
           </div>
         </div>
@@ -255,46 +244,30 @@ Bilingual AI Health Summary (ES + EN, displayed on tablet)
         <div class="row gtr-150">
           <div class="col-6 col-12-medium">
             <ul>
-              <li>
-                <strong>Router failure mid-deployment:</strong> tablets lost mesh connectivity on day 6.
-                Each tablet's local SQLite data remained intact. Designed a post-trip identity-based SQL
-                merge process to reconcile ~12 duplicate patient pairs created during the isolated period.
-              </li>
-              <li>
-                <strong>UTC timezone rollover bug:</strong> patient records were dating to the wrong day
-                at midnight local time. Identified pre-deployment and patched with a shared <code>dateUtils.ts</code>
-                local-time utility across all date-sensitive screens.
-              </li>
+              <li><strong>Router failure mid-deployment:</strong> tablets lost mesh connectivity on day 6. Each tablet's local SQLite data remained intact. Designed a post-trip identity-based SQL merge process to reconcile ~12 duplicate patient pairs.</li>
+              <li><strong>UTC timezone rollover bug:</strong> patient records were dating to the wrong day at midnight local time. Patched with a shared dateUtils.ts local-time utility across all date-sensitive screens.</li>
             </ul>
           </div>
           <div class="col-6 col-12-medium">
             <ul>
-              <li>
-                <strong>Partial-save crashes:</strong> an edge case in the multi-step intake flow caused
-                incomplete records on app resume. Pushed emergency APK v2.1 mid-mission via ADB to all
-                8 tablets without disrupting clinic flow.
-              </li>
-              <li>
-                <strong>Community dropdown mismatches:</strong> tablet communities fell out of sync
-                during initial propagation. Debugged data seeding logic in the field with targeted
-                SQL queries and corrected the community assignment across all devices.
-              </li>
+              <li><strong>Partial-save crashes:</strong> an edge case in the multi-step intake flow caused incomplete records on app resume. Pushed emergency APK v2.1 mid-mission via ADB to all 8 tablets without disrupting clinic flow.</li>
+              <li><strong>Community dropdown mismatches:</strong> tablet communities fell out of sync during propagation. Debugged data seeding logic in the field with targeted SQL queries.</li>
             </ul>
           </div>
         </div>
 
-        <h4 style="margin-top: 1.5rem;">Recent Improvements (February – March 2026)</h4>
+        <h4 style="margin-top: 1.5rem;">Recent Improvements (February - March 2026)</h4>
         <div class="row gtr-150">
           <div class="col-6 col-12-medium">
             <ul>
-              <li><strong>Report Center:</strong> unified screen replacing separate generators — mission calendar, single/multi-day selection, bilingual PDF preview and share</li>
-              <li><strong>Community Health AI (beta):</strong> local Llama3 via Ollama, anonymized aggregation before any AI processing, configurable host IP from within the app</li>
+              <li><strong>Report Center:</strong> unified screen with mission calendar, single/multi-day selection, bilingual PDF preview and share</li>
+              <li><strong>Community Health AI (beta):</strong> local Llama3 via Ollama, anonymized aggregation before any AI processing, configurable host IP</li>
               <li><strong>Edit Patient Screen:</strong> update records directly from Visit Hub, changes sync automatically</li>
             </ul>
           </div>
           <div class="col-6 col-12-medium">
             <ul>
-              <li><strong>Router mesh migration:</strong> moved from WiFi Direct to standard router networking — simpler setup, better reliability, works with existing clinic infrastructure</li>
+              <li><strong>Router mesh migration:</strong> moved from WiFi Direct to standard router networking, simpler setup, better reliability</li>
               <li><strong>Delta sync + 24-hour window:</strong> only changed records sent, faster sync, prevents name corruption bug</li>
               <li><strong>Database safety:</strong> race condition fixes, initialization checks, graceful edge case handling</li>
             </ul>
@@ -311,7 +284,7 @@ Bilingual AI Health Summary (ES + EN, displayed on tablet)
           <div class="col-6 col-12-medium">
             <h4>Deployment Results</h4>
             <ul>
-              <li>100+ patients served across a multi-day clinic in Tonalá, Chiapas with zero paper records</li>
+              <li>100+ patients served across a multi-day clinic in Tonala, Chiapas with zero paper records</li>
               <li>All 8 tablets operated reliably in a zero-internet environment for the full mission</li>
               <li>Emergency APK push mid-mission resolved without disrupting patient flow</li>
               <li>Post-trip SQL cleanup reconciled all duplicate records from the router failure event</li>
@@ -320,7 +293,7 @@ Bilingual AI Health Summary (ES + EN, displayed on tablet)
           <div class="col-6 col-12-medium">
             <h4>What's Next</h4>
             <ul>
-              <li>V2 in active development as an Aurora University capstone — 20-table schema, cr-sqlite CRDT sync, full ERD documentation</li>
+              <li>V2 in active development as an Aurora University capstone, 20-table schema, cr-sqlite CRDT sync, full ERD documentation</li>
               <li>AI Community Health Summaries moving toward production validation</li>
               <li>Idempotency improvements for creation endpoints to further harden sync</li>
               <li>Planned: inventory manager for clinic supplies and medications</li>
@@ -330,7 +303,7 @@ Bilingual AI Health Summary (ES + EN, displayed on tablet)
         </div>
         <ul class="actions special" style="margin-top: 2rem;">
           <li><a href="../index.html#projects" class="button">Back to Projects</a></li>
-          <li><a href="/cdn-cgi/l/email-protection#d9b3b4abb6bdabb0beacbca3e0e1e1edeb99beb4b8b0b5f7bab6b4" class="button primary">Contact Me</a></li>
+          <li><a href="mailto:jmrodriguez98842@gmail.com" class="button primary">Contact Me</a></li>
         </ul>
       </div>
     </section>
@@ -340,14 +313,14 @@ Bilingual AI Health Summary (ES + EN, displayed on tablet)
       <ul class="icons">
         <li><a href="https://github.com/jmr988" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
         <li><a href="https://www.linkedin.com/in/josemrodriguez918" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-        <li><a href="/cdn-cgi/l/email-protection#82e8eff0ede6f0ebe5f7e7f8bbbabab6b0c2e5efe3ebeeace1edef" target="_blank" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+        <li><a href="mailto:jmrodriguez98842@gmail.com" target="_blank" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
       </ul>
       <ul class="copyright">
-        <li>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f79d9a859893859e9082928dcecfcfc3c5b7909a969e9bd994989a">[email&#160;protected]</a></li>
+        <li>Email: jmrodriguez98842@gmail.com</li>
       </ul>
     </section>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/jquery.scrolly.min.js"></script>
     <script src="../assets/js/browser.min.js"></script>
     <script src="../assets/js/breakpoints.min.js"></script>
