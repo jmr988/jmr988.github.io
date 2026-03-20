@@ -1,13 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Tortuga EMR & Dashboard</title>
-</head>
-<body>
-    <h1>La Tortuga EMR & Dashboard</h1>
-    <p>Case study on La Tortuga EMR & Dashboard.</p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/lq1eRwtUdqg" frameborder="0" allowfullscreen></iframe>
-</body>
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>La Tortuga EMR — Case Study | Jose Rodriguez</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Offline-first EMR system deployed on 8 tablets in rural Chiapas, Mexico — serving 100+ patients with zero internet connectivity.">
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+  <body class="is-preload">
+
+    <!-- Header -->
+    <section id="header">
+      <div class="inner">
+        <span class="icon solid major fa-heartbeat"></span>
+        <h1>La Tortuga EMR — <strong>Field-Deployed Health Tech</strong></h1>
+        <p>React Native • SQLite / cr-sqlite (CRDT) • Firestore Analytics • Ollama / Llama3 • Deployed Chiapas, Mexico 2026</p>
+        <ul class="actions special">
+          <li><a href="#overview" class="button scrolly">Overview</a></li>
+          <li><a href="#demo" class="button scrolly">Watch Demo</a></li>
+          <li><a href="#stack" class="button scrolly">Tech Stack</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section id="overview" class="main style1">
+      <div class="container">
+        <header class="major"><h2>Project Overview</h2></header>
+        <p>
+          La Tortuga EMR is a production electronic medical records system I designed and built for
+          La Tortuga Foundation's annual medical missions to underserved communities in southern Mexico.
+          The system runs entirely offline across a local tablet network, syncing patient data peer-to-peer
+          with no internet required — because in rural Chiapas, there is none.
+        </p>
+        <p>
+          In March 2026, I led the field deployment to Tonalá, Chiapas — 8 Samsung Galaxy Tab Active3
+          tablets, a local ASUS router, and a full clinic workflow covering patient check-in, medical intake,
+          dental records, a live waiting room queue, and AI-generated community health reports. Over the
+          course of the mission, the system served 100+ patients and survived real-world conditions
+          including a mid-deployment router failure and an emergency APK push.
+        </p>
+        <p><strong>Role:</strong> Solo Developer (V1) & Tech Lead (V2 Capstone) • <strong>Timeline:</strong> Built in ~2.5 months, deployed March 2026 • <strong>Organization:</strong> La Tortuga Foundation</p>
+      </div>
+    </section>
+
+    <!-- Demo -->
+    <section id="demo" class="main style2">
+      <div class="container">
+        <header class="major"><h2>Demo Video</h2></header>
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
+          <iframe
+            src="https://www.youtube.com/embed/lq1eRwtUdqg"
+            title="La Tortuga EMR — Demo"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features + Stack -->
+    <section id="stack" class="main style1">
+      <div class="container">
+        <div class="row gtr-150">
+          <div class="col-6 col-12-medium">
+            <header class="major"><h2>Key Features</h2></header>
+            <ul>
+              <li>Offline-first P2P sync across up to 8 tablets with no internet using cr-sqlite CRDT architecture.</li>
+              <li>Full patient workflow: check-in, medical intake, dental records, waiting room queue, and discharge.</li>
+              <li>AI-generated community health reports via local Ollama / Llama3 — bilingual English and Spanish output.</li>
+              <li>Firestore analytics dashboard (Vite / React) for de-identified aggregate data visualization.</li>
+              <li>Bilingual UI across all patient-facing screens with shared date utilities and JSON translation files.</li>
+              <li>Identity-based duplicate patient detection and post-mission SQL cleanup tooling.</li>
+            </ul>
+          </div>
+          <div class="col-6 col-12-medium">
+            <header class="major"><h2>Tech Stack</h2></header>
+            <p>
+              <span class="icon solid fa-check"></span> React Native + TypeScript + Expo<br/>
+              <span class="icon solid fa-check"></span> SQLite via op-sqlite + cr-sqlite (CRDT sync)<br/>
+              <span class="icon solid fa-check"></span> Firebase / Firestore (analytics pipeline)<br/>
+              <span class="icon solid fa-check"></span> Ollama / Llama3 (local AI, no internet required)<br/>
+              <span class="icon solid fa-check"></span> Vite + React (analytics dashboard)<br/>
+              <span class="icon solid fa-check"></span> ADB + Git (device management & version control)
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Challenges -->
+    <section class="main style2">
+      <div class="container">
+        <header class="major"><h2>Field Challenges & Solutions</h2></header>
+        <ul>
+          <li><strong>Router failure mid-deployment:</strong> tablets lost sync connectivity on day 6. Resolved by isolating each tablet's local data and designing a post-trip SQL merge process to reconcile ~12 duplicate patient pairs.</li>
+          <li><strong>UTC timezone bug:</strong> patient records were rolling over to the wrong date at midnight. Identified and patched with a shared local-time utility before deployment.</li>
+          <li><strong>Partial-save crashes:</strong> an edge case in multi-step intake caused incomplete records. Pushed an emergency APK (V2.1) mid-mission via ADB to resolve without disrupting clinic flow.</li>
+          <li><strong>Community dropdown mismatches:</strong> tablet communities fell out of sync during propagation. Debugged and corrected data seeding logic with targeted SQL queries in the field.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Outcome -->
+    <section class="main style1">
+      <div class="container">
+        <header class="major"><h2>Outcome & Impact</h2></header>
+        <ul>
+          <li>100+ patients served across a multi-day clinic in Tonalá, Chiapas with zero paper records.</li>
+          <li>All 8 tablets operated reliably in a zero-internet environment for the full mission duration.</li>
+          <li>AI-generated health reports delivered actionable community health insights to foundation leadership.</li>
+          <li>V2 in active development as an Aurora University capstone project, featuring a fully normalized 20-table schema and production-grade CRDT sync.</li>
+        </ul>
+        <ul class="actions special">
+          <li><a href="../index.html#three" class="button">Back to Projects</a></li>
+          <li><a href="mailto:jmrodriguez98842@gmail.com" class="button primary">Contact Me</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <section id="footer">
+      <ul class="icons">
+        <li><a href="https://github.com/jmr988" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+        <li><a href="https://www.linkedin.com/in/josemrodriguez918" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+        <li><a href="mailto:jmrodriguez98842@gmail.com" target="_blank" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+      </ul>
+      <ul class="copyright">
+        <li>Email: jmrodriguez98842@gmail.com</li>
+      </ul>
+    </section>
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
 </html>
