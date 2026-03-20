@@ -161,13 +161,13 @@
           One designated Cloud Gateway tablet uploads de-identified aggregate data to Firebase/Firestore
           when internet is available. All other tablets operate 100% offline. No PHI ever leaves a tablet.
         </p>
-        <div class="code-block"><span style="color:#ffffff;font-family:monospace;">Clinic Tablets (Router Mesh)
+        <pre style="background:#1a1a1a;color:#f0f0f0;padding:1rem 1.2rem;border-radius:6px;font-family:monospace;font-size:0.82em;line-height:1.7;overflow-x:auto;white-space:pre;display:block;border:1px solid #444;margin:0.8rem 0;">Clinic Tablets (Router Mesh)
     |
 Cloud Gateway Tablet (1 designated tablet, when internet available)
     |
 Firebase / Firestore (aggregate_stats collection)
     |
-React / Vite Analytics Dashboard</span></div>
+React / Vite Analytics Dashboard</pre>
 
         <span class="layer-badge badge-ai" style="margin-top: 1.5rem;">Layer 3 — Offline Reporting &amp; AI</span>
         <p>
@@ -175,13 +175,13 @@ React / Vite Analytics Dashboard</span></div>
           aggregates and anonymizes patient data locally, then sends it to a local Ollama / Llama3 instance
           running on a laptop on the same clinic WiFi. No internet required at any step.
         </p>
-        <div class="code-block"><span style="color:#ffffff;font-family:monospace;">Clinic Tablets (Router Mesh)
+        <pre style="background:#1a1a1a;color:#f0f0f0;padding:1rem 1.2rem;border-radius:6px;font-family:monospace;font-size:0.82em;line-height:1.7;overflow-x:auto;white-space:pre;display:block;border:1px solid #444;margin:0.8rem 0;">Clinic Tablets (Router Mesh)
     |
 Community Health Aggregator (anonymizes data locally, no PHI)
     |  (WiFi only, no internet)
 Ollama / Llama3 (running on clinic laptop)
     |
-Bilingual AI Health Summary (ES + EN, displayed on tablet)</span></div>
+Bilingual AI Health Summary (ES + EN, displayed on tablet)</pre>
 
         <h4 style="margin-top: 2rem;">Architecture Summary</h4>
         <div class="arch-table-wrap">
