@@ -8,129 +8,17 @@
     <link rel="stylesheet" href="../assets/css/main.css" />
     <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
     <style>
-      /* ── Legacy table styles kept for other tables ── */
-      .code-block { background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1rem 1.2rem; font-family: monospace; font-size: 0.82em; color: #aaa; line-height: 1.7; overflow-x: auto; margin: 0.8rem 0; }
-      .callout { background: rgba(255,255,255,0.04); border-left: 3px solid rgba(100,180,255,0.5); border-radius: 0 6px 6px 0; padding: 0.8rem 1.2rem; margin: 1rem 0; font-size: 0.9em; color: #bbb; }
+      .arch-table { width: 100%; border-collapse: collapse; font-size: 0.85em; margin-top: 1rem; border: 1px solid rgba(255,255,255,0.2); }
+      .arch-table th { text-align: left; padding: 10px 14px; background: rgba(255,255,255,0.12); color: #ffffff; font-weight: 700; border-bottom: 2px solid rgba(255,255,255,0.25); border-right: 1px solid rgba(255,255,255,0.15); }
+      .arch-table td { padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.15); border-right: 1px solid rgba(255,255,255,0.1); color: #e8e8e8; vertical-align: top; }
+      .arch-table tr:last-child td { border-bottom: none; } .arch-table tr:hover td { background: rgba(255,255,255,0.04); }
       .layer-badge { display: inline-block; font-size: 0.75em; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; border-radius: 4px; padding: 2px 7px; margin-bottom: 0.5rem; }
       .badge-offline { background: rgba(80,180,120,0.15); color: #6dcea0; border: 1px solid rgba(80,180,120,0.3); }
       .badge-cloud   { background: rgba(100,160,255,0.12); color: #7eb8ff; border: 1px solid rgba(100,160,255,0.3); }
       .badge-ai      { background: rgba(200,140,255,0.12); color: #d09fff; border: 1px solid rgba(200,140,255,0.3); }
+      .code-block { background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1rem 1.2rem; font-family: monospace; font-size: 0.82em; color: #aaa; line-height: 1.7; overflow-x: auto; margin: 0.8rem 0; }
+      .callout { background: rgba(255,255,255,0.04); border-left: 3px solid rgba(100,180,255,0.5); border-radius: 0 6px 6px 0; padding: 0.8rem 1.2rem; margin: 1rem 0; font-size: 0.9em; color: #bbb; }
       #header .inner h1, #header .inner h1 strong, #header .inner p { color: #ffffff !important; opacity: 1 !important; visibility: visible !important; }
-
-      /* ── Architecture Summary Table ── */
-      @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Syne:wght@600;800&display=swap');
-
-      .arch-table-wrap {
-        border: 1px solid rgba(100,200,255,0.12);
-        border-radius: 10px;
-        overflow: hidden;
-        margin-top: 1rem;
-      }
-
-      .arch-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 0.78rem;
-      }
-
-      .arch-table thead tr {
-        background: rgba(100,200,255,0.07);
-        border-bottom: 1px solid rgba(100,200,255,0.18);
-      }
-
-      .arch-table thead th {
-        padding: 0.85rem 1rem;
-        text-align: left;
-        font-family: 'Syne', sans-serif;
-        font-weight: 600;
-        font-size: 0.7rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: #7eb8ff;
-      }
-
-      .arch-table tbody tr {
-        border-bottom: 1px solid rgba(255,255,255,0.05);
-        transition: background 0.15s ease;
-      }
-
-      .arch-table tbody tr:last-child { border-bottom: none; }
-
-      .arch-table tbody tr:hover {
-        background: rgba(100,200,255,0.04);
-      }
-
-      .arch-table tbody td {
-        padding: 0.8rem 1rem;
-        vertical-align: middle;
-        line-height: 1.5;
-      }
-
-      .arch-table td.col-layer {
-        font-family: 'Syne', sans-serif;
-        font-weight: 600;
-        font-size: 0.78rem;
-        color: #f1f5f9;
-        white-space: nowrap;
-      }
-
-      .arch-table td.col-tech {
-        color: #c8d6e8;
-        font-size: 0.73rem;
-      }
-
-      .arch-table td.col-purpose {
-        color: #edf2f7;
-        font-size: 0.75rem;
-      }
-
-      .arch-table td.col-conn { white-space: nowrap; }
-
-      .conn-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        font-family: 'Syne', sans-serif;
-        font-weight: 600;
-        font-size: 0.68rem;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        border-radius: 999px;
-        padding: 0.25rem 0.65rem;
-      }
-
-      .conn-badge-dot {
-        width: 5px;
-        height: 5px;
-        border-radius: 50%;
-        background: currentColor;
-        flex-shrink: 0;
-      }
-
-      .conn-offline {
-        background: rgba(74,222,128,0.1);
-        color: #4ade80;
-        border: 1px solid rgba(74,222,128,0.25);
-      }
-
-      .conn-online {
-        background: rgba(96,165,250,0.12);
-        color: #60a5fa;
-        border: 1px solid rgba(96,165,250,0.25);
-      }
-
-      .conn-lan {
-        background: rgba(192,132,252,0.1);
-        color: #c084fc;
-        border: 1px solid rgba(192,132,252,0.25);
-      }
-
-      /* Left-border group accents */
-      .arch-table tr.grp-mesh   td:first-child { border-left: 3px solid #4ade80; }
-      .arch-table tr.grp-cloud  td:first-child { border-left: 3px solid #60a5fa; }
-      .arch-table tr.grp-ai     td:first-child { border-left: 3px solid #c084fc; }
-      .arch-table tr.grp-fe     td:first-child { border-left: 3px solid #fb923c; }
     </style>
   </head>
   <body class="is-preload">
@@ -267,14 +155,14 @@
 
         <span class="layer-badge badge-cloud" style="margin-top: 1.5rem;">Layer 2 — Cloud Analytics (Optional)</span>
         <p>
-          One designated Cloud Gateway tablet uploads de-identified aggregate data to Firebase
+          One designated Cloud Gateway tablet uploads de-identified aggregate data to Firebase / BigQuery
           when internet is available. All other tablets operate 100% offline. No PHI ever leaves a tablet.
         </p>
         <div class="code-block">Clinic Tablets (Router Mesh)
     |
 Cloud Gateway Tablet (1 designated tablet, when internet available)
     |
-Firebase / Firestore
+Firebase / BigQuery
     |
 React / Vite Analytics Dashboard</div>
 
@@ -293,83 +181,23 @@ Ollama / Llama3 (running on clinic laptop)
 Bilingual AI Health Summary (ES + EN, displayed on tablet)</div>
 
         <h4 style="margin-top: 2rem;">Architecture Summary</h4>
-
-        <!-- ── Updated Architecture Table ── -->
-        <div class="arch-table-wrap">
-          <table class="arch-table">
-            <thead>
-              <tr>
-                <th>Layer</th>
-                <th>Technology</th>
-                <th>Purpose</th>
-                <th>Connectivity</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="grp-mesh">
-                <td class="col-layer">Clinic Mesh</td>
-                <td class="col-tech">Router WiFi · UDP 8888 · TCP 8889 · SQLite</td>
-                <td class="col-purpose">Real-time clinic operations</td>
-                <td class="col-conn"><span class="conn-badge conn-offline"><span class="conn-badge-dot"></span>Offline</span></td>
-              </tr>
-              <tr class="grp-mesh">
-                <td class="col-layer">Delta Sync</td>
-                <td class="col-tech">Modified records · 24hr window</td>
-                <td class="col-purpose">Efficient sync, prevents corruption</td>
-                <td class="col-conn"><span class="conn-badge conn-offline"><span class="conn-badge-dot"></span>Offline</span></td>
-              </tr>
-              <tr class="grp-mesh">
-                <td class="col-layer">Pull-to-Refresh</td>
-                <td class="col-tech">Manual sync trigger</td>
-                <td class="col-purpose">Instant updates on demand</td>
-                <td class="col-conn"><span class="conn-badge conn-offline"><span class="conn-badge-dot"></span>Offline</span></td>
-              </tr>
-              <tr class="grp-mesh">
-                <td class="col-layer">Identity</td>
-                <td class="col-tech">Azure-Peak animal-mountain IDs</td>
-                <td class="col-purpose">Tablet identification</td>
-                <td class="col-conn"><span class="conn-badge conn-offline"><span class="conn-badge-dot"></span>Offline</span></td>
-              </tr>
-              <tr class="grp-mesh">
-                <td class="col-layer">Conflict Resolution</td>
-                <td class="col-tech">syncVersion · field-level merge</td>
-                <td class="col-purpose">Data consistency</td>
-                <td class="col-conn"><span class="conn-badge conn-offline"><span class="conn-badge-dot"></span>Offline</span></td>
-              </tr>
-              <tr class="grp-ai">
-                <td class="col-layer">Report Center</td>
-                <td class="col-tech">expo-print · expo-sharing</td>
-                <td class="col-purpose">Bilingual PDF export</td>
-                <td class="col-conn"><span class="conn-badge conn-offline"><span class="conn-badge-dot"></span>Offline</span></td>
-              </tr>
-              <tr class="grp-ai">
-                <td class="col-layer">Community Health AI</td>
-                <td class="col-tech">Ollama · Llama3</td>
-                <td class="col-purpose">AI health summaries</td>
-                <td class="col-conn"><span class="conn-badge conn-lan"><span class="conn-badge-dot"></span>Offline (LAN)</span></td>
-              </tr>
-              <tr class="grp-cloud">
-                <td class="col-layer">Cloud Gateway</td>
-                <td class="col-tech">Firebase · Firestore</td>
-                <td class="col-purpose">Population analytics</td>
-                <td class="col-conn"><span class="conn-badge conn-online"><span class="conn-badge-dot"></span>Online</span></td>
-              </tr>
-              <tr class="grp-cloud">
-                <td class="col-layer">Analytics Dashboard</td>
-                <td class="col-tech">React · Vite · Firestore</td>
-                <td class="col-purpose">Trend visualization</td>
-                <td class="col-conn"><span class="conn-badge conn-online"><span class="conn-badge-dot"></span>Online</span></td>
-              </tr>
-              <tr class="grp-fe">
-                <td class="col-layer">Frontend</td>
-                <td class="col-tech">React Native · Expo · TypeScript</td>
-                <td class="col-purpose">Cross-platform tablet UI</td>
-                <td class="col-conn"><span class="conn-badge conn-offline"><span class="conn-badge-dot"></span>Offline</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
+        <table class="arch-table">
+          <thead>
+            <tr><th>Layer</th><th>Technology</th><th>Purpose</th><th>Connectivity</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Clinic Mesh</td><td>Router WiFi + UDP 8888 + TCP 8889 + SQLite</td><td>Real-time clinic operations</td><td>Offline (router only)</td></tr>
+            <tr><td>Delta Sync</td><td>Modified records + 24hr window</td><td>Efficient sync, prevents corruption</td><td>Offline</td></tr>
+            <tr><td>Pull-to-Refresh</td><td>Manual sync trigger</td><td>Instant updates on demand</td><td>Offline</td></tr>
+            <tr><td>Identity</td><td>Azure-Peak animal-mountain IDs</td><td>Tablet identification</td><td>Offline</td></tr>
+            <tr><td>Conflict Resolution</td><td>syncVersion + field-level merge</td><td>Data consistency</td><td>Offline</td></tr>
+            <tr><td>Report Center</td><td>expo-print + expo-sharing</td><td>Bilingual PDF export</td><td>Offline</td></tr>
+            <tr><td>Community Health AI</td><td>Ollama + Llama3</td><td>AI health summaries</td><td>Offline (laptop on same WiFi)</td></tr>
+            <tr><td>Cloud Gateway</td><td>Firebase + BigQuery</td><td>Population analytics</td><td>Online (1 tablet only)</td></tr>
+            <tr><td>Analytics Dashboard</td><td>React + Vite + Firestore</td><td>Trend visualization</td><td>Online (admin access)</td></tr>
+            <tr><td>Frontend</td><td>React Native + Expo + TypeScript</td><td>Cross-platform tablet UI</td><td>Offline</td></tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -385,6 +213,7 @@ Bilingual AI Health Summary (ES + EN, displayed on tablet)</div>
               <span class="icon solid fa-check"></span> UDP broadcast (port 8888) + TCP sockets (port 8889)<br/>
               <span class="icon solid fa-check"></span> syncVersion conflict resolution + field-level merge<br/>
               <span class="icon solid fa-check"></span> Firebase / Firestore (de-identified cloud analytics)<br/>
+              <span class="icon solid fa-check"></span> BigQuery + Looker Studio (population health dashboard)<br/>
               <span class="icon solid fa-check"></span> Ollama / Llama3 (local AI, fully offline)<br/>
               <span class="icon solid fa-check"></span> Vite + React (analytics dashboard)<br/>
               <span class="icon solid fa-check"></span> expo-print + expo-sharing (PDF generation)<br/>
@@ -474,7 +303,7 @@ Bilingual AI Health Summary (ES + EN, displayed on tablet)</div>
         </div>
         <ul class="actions special" style="margin-top: 2rem;">
           <li><a href="../index.html#projects" class="button">Back to Projects</a></li>
-          <li><a href="mailto:jmrodriguez98842@gmail.com" class="button primary">Contact Me</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#650f08170a01170c0210001f5c5d5d5157250208040c094b060a08" class="button primary">Contact Me</a></li>
         </ul>
       </div>
     </section>
@@ -484,18 +313,11 @@ Bilingual AI Health Summary (ES + EN, displayed on tablet)</div>
       <ul class="icons">
         <li><a href="https://github.com/jmr988" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
         <li><a href="https://www.linkedin.com/in/josemrodriguez918" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-        <li><a href="mailto:jmrodriguez98842@gmail.com" target="_blank" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+        <li><a href="/cdn-cgi/l/email-protection#7e14130c111a0c17190b1b044746464a4c3e19131f1712501d1113" target="_blank" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
       </ul>
       <ul class="copyright">
-        <li>Email: jmrodriguez98842@gmail.com</li>
+        <li>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1b717669747f69727c6e7e612223232f295b7c767a727735787476">[email&#160;protected]</a></li>
       </ul>
     </section>
 
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/jquery.scrolly.min.js"></script>
-    <script src="../assets/js/browser.min.js"></script>
-    <script src="../assets/js/breakpoints.min.js"></script>
-    <script src="../assets/js/util.js"></script>
-    <script src="../assets/js/main.js"></script>
-  </body>
-</html>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src
