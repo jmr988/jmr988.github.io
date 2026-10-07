@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -32,21 +33,27 @@
 				.intro-container h1 { font-size: 1.7em !important; line-height: 1.25em; margin-bottom: 0.6em; }
 				.intro-container h1 .tagline { font-size: 0.72em; line-height: 1.35em; margin-top: 0.35em; }
 				.intro-container p.description { font-size: 0.95em !important; line-height: 1.55em; }
-				#header .actions {
-					display: flex !important;
-					flex-wrap: wrap;
-					justify-content: center;
-					gap: 0.75em;
-					margin: 1.25em 0 0 0 !important;
-					padding: 0 !important;
-				}
-				#header .actions li { display: block; padding: 0 !important; margin: 0 !important; width: auto !important; flex: 1 1 140px; max-width: 220px; }
-				#header .actions .button { width: 100% !important; min-width: 0 !important; padding: 0 1em !important; font-size: 0.8em; }
 			}
 
-			/* Hide the template's decorative line under the hero buttons */
-			#header .actions:before,
-			#header .actions:after { display: none !important; }
+			/* Hero buttons: own container, independent of the template's .actions styles */
+			.hero-buttons {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 1em;
+				margin-top: 1.75em;
+			}
+			.hero-buttons .button { margin: 0; }
+			@media (max-width: 736px) {
+				.hero-buttons {
+					flex-direction: column;
+					align-items: stretch;
+					gap: 0.75em;
+					max-width: 300px;
+					margin: 1.5em auto 0;
+				}
+				.hero-buttons .button { width: 100%; min-width: 0; }
+			}
 
 			/* About photo: smaller portrait beside the text */
 			.about-img-wrap {
@@ -200,14 +207,14 @@
 		<section id="header">
 			<div class="inner intro-container">
 				<span class="icon solid major fa-laptop-code"></span>
-				<h1><strong>Jose Rodriguez</strong><span class="tagline">I build health software for places the internet doesn't reach.</span></h1>
+				<h1><strong>Jose Rodriguez</strong><span class="tagline">I build data systems for people who usually get overlooked.</span></h1>
 				<p class="description">
-					In March 2026, my offline medical records system ran on 8 tablets in rural Chiapas and served <strong>100+ patients</strong> with zero connectivity. My focus is <strong>health IT and analytics</strong>.
+					My offline medical records system ran on 8 tablets in rural Chiapas and served <strong>100+ patients</strong> with zero connectivity. The data it collected now helps plan future clinics. My focus is <strong>analytics that turns data into better decisions</strong> for real communities.
 				</p>
-				<ul class="actions special" style="margin-top: 1.5rem;">
-					<li><a href="projects/la-tortuga-emr.html" class="button primary">See the EMR</a></li>
-					<li><a href="mailto:jmrodriguez98842@gmail.com" class="button">Let's talk</a></li>
-				</ul>
+				<div class="hero-buttons">
+					<a href="projects/la-tortuga-emr.html" class="button primary">See the EMR</a>
+					<a href="mailto:jmrodriguez98842@gmail.com" class="button">Let's talk</a>
+				</div>
 			</div>
 		</section>
 
