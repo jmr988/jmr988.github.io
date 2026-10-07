@@ -21,6 +21,29 @@
 				.intro-container p.description { font-size: 1em; }
 			}
 
+			/* Hero tagline sits on its own line under the name */
+			.intro-container h1 .tagline { display: block; font-weight: 300; }
+
+			/* Hero on phones: tighter spacing, smaller type, buttons side by side */
+			@media (max-width: 736px) {
+				#header { padding: 3.5em 1.25em 3em !important; }
+				#header .icon.major { display: none !important; }
+				.intro-container { padding: 0; }
+				.intro-container h1 { font-size: 1.7em !important; line-height: 1.25em; margin-bottom: 0.6em; }
+				.intro-container h1 .tagline { font-size: 0.72em; line-height: 1.35em; margin-top: 0.35em; }
+				.intro-container p.description { font-size: 0.95em !important; line-height: 1.55em; }
+				#header .actions {
+					display: flex !important;
+					flex-wrap: wrap;
+					justify-content: center;
+					gap: 0.75em;
+					margin: 1.25em 0 0 0 !important;
+					padding: 0 !important;
+				}
+				#header .actions li { display: block; padding: 0 !important; margin: 0 !important; width: auto !important; flex: 1 1 140px; max-width: 220px; }
+				#header .actions .button { width: 100% !important; min-width: 0 !important; padding: 0 1em !important; font-size: 0.8em; }
+			}
+
 			/* Hide the template's decorative line under the hero buttons */
 			#header .actions:before,
 			#header .actions:after { display: none !important; }
@@ -177,7 +200,7 @@
 		<section id="header">
 			<div class="inner intro-container">
 				<span class="icon solid major fa-laptop-code"></span>
-				<h1><strong>Jose Rodriguez</strong><br />I build health software for places the internet doesn't reach.</h1>
+				<h1><strong>Jose Rodriguez</strong><span class="tagline">I build health software for places the internet doesn't reach.</span></h1>
 				<p class="description">
 					In March 2026, my offline medical records system ran on 8 tablets in rural Chiapas and served <strong>100+ patients</strong> with zero connectivity. My focus is <strong>health IT and analytics</strong>.
 				</p>
