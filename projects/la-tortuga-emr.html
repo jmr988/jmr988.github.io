@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>La Tortuga EMR — Case Study | Jose Rodriguez</title>
+    <title>La Tortuga EMR Case Study | Jose Rodriguez</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="Offline-first P2P EMR system deployed on 8 tablets in rural Chiapas, Mexico.">
+    <meta name="description" content="An offline medical records system that served 100+ patients on 8 tablets in rural Chiapas, Mexico, with zero internet.">
     <link rel="stylesheet" href="../assets/css/main.css" />
     <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
     <style>
@@ -30,8 +30,8 @@
     <section id="header">
       <div class="inner">
         <span class="icon solid major fa-heartbeat"></span>
-        <h1>La Tortuga EMR — <strong>Field-Deployed Health Tech</strong></h1>
-        <p>React Native &bull; Router-Based Mesh Sync &bull; SQLite &bull; Ollama / Llama3 &bull; Firebase/Firestore Analytics &bull; Deployed Chiapas, Mexico 2026</p>
+        <h1>La Tortuga EMR<br /><strong>Offline medical records for rural clinics</strong></h1>
+        <p>8 tablets &bull; 100+ patients &bull; zero internet &bull; field deployed in Chiapas, Mexico</p>
         <ul class="actions special">
           <li><a href="#overview" class="button scrolly">Overview</a></li>
           <li><a href="#demo" class="button scrolly">Watch Demo</a></li>
@@ -45,6 +45,12 @@
     <section id="overview" class="main style1">
       <div class="container">
         <header class="major"><h2>Project Overview</h2></header>
+        <div class="callout" style="font-size: 1em; color: #ddd; margin-bottom: 1.5rem;">
+          <strong>In short:</strong> La Tortuga Foundation runs free medical and dental clinics in rural Chiapas, Mexico,
+          where there is no internet. I built the records system that runs those clinics on tablets, completely offline.
+          In March 2026 it served 100+ patients, and the de-identified data it collected now helps the foundation
+          and local community leaders plan future clinics.
+        </div>
         <p>
           La Tortuga EMR is a tablet-first medical and dental intake system built for La Tortuga Foundation's
           volunteer missions in rural Chiapas, Mexico. It captures patient data entirely offline, stores it
@@ -59,7 +65,7 @@
           real-world conditions including a mid-deployment router failure and an emergency APK push.
         </p>
         <p>
-          <strong>Role:</strong> Solo Developer (V1) &amp; Tech Lead (V2 Capstone) &bull;
+          <strong>Role:</strong> Solo Developer &amp; Tech Lead, La Tortuga Foundation &bull;
           <strong>Timeline:</strong> Built in ~2.5 months, deployed March 2026 &bull;
           <strong>Organization:</strong> La Tortuga Foundation
         </p>
@@ -124,7 +130,7 @@
           internet is available. The reporting and AI layer runs fully offline on the local network.
         </p>
 
-        <span class="layer-badge badge-offline">Layer 1 — Clinic Mesh (Offline)</span>
+        <span class="layer-badge badge-offline">Layer 1: Clinic Mesh (Offline)</span>
         <p>
           The primary operational layer runs within each clinic using a standard WiFi router. Tablets
           discover each other automatically via UDP broadcast on port 8888, then establish TCP connections
@@ -156,7 +162,7 @@
           <strong>Key design principle:</strong> each tablet holds a complete local copy of all clinic data. There is no single point of failure. If any tablet goes down, every other tablet continues operating independently.
         </div>
 
-        <span class="layer-badge badge-cloud" style="margin-top: 1.5rem;">Layer 2 — Cloud Analytics (Optional)</span>
+        <span class="layer-badge badge-cloud" style="margin-top: 1.5rem;">Layer 2: Cloud Analytics (Optional)</span>
         <p>
           One designated Cloud Gateway tablet uploads de-identified aggregate data to Firebase/Firestore
           when internet is available. All other tablets operate 100% offline. No PHI ever leaves a tablet.
@@ -169,7 +175,7 @@ Firebase / Firestore (aggregate_stats collection)
     |
 React / Vite Analytics Dashboard</pre>
 
-        <span class="layer-badge badge-ai" style="margin-top: 1.5rem;">Layer 3 — Offline Reporting &amp; AI</span>
+        <span class="layer-badge badge-ai" style="margin-top: 1.5rem;">Layer 3: Offline Reporting &amp; AI</span>
         <p>
           The Report Center generates bilingual PDFs directly on-device. The AI Community Health feature
           aggregates and anonymizes patient data locally, then sends it to a local Ollama / Llama3 instance
@@ -292,12 +298,14 @@ Bilingual AI Health Summary (ES + EN, displayed on tablet)</pre>
               <li>All 8 tablets operated reliably in a zero-internet environment for the full mission</li>
               <li>Emergency APK push mid-mission resolved without disrupting patient flow</li>
               <li>Post-trip SQL cleanup reconciled all duplicate records from the router failure event</li>
+              <li>De-identified community health reports shared with local community leaders and used by the foundation to plan future missions</li>
             </ul>
           </div>
           <div class="col-6 col-12-medium">
             <h4>What's Next</h4>
             <ul>
-              <li>V2 in active development as an Aurora University capstone, 20-table schema, cr-sqlite CRDT sync, full ERD documentation</li>
+              <li>Version 2 in active development for the next Chiapas deployment: a new normalized schema and a new bilingual interface, built on V1's field-proven sync engine</li>
+              <li>Clinical notes with voice dictation, so clinicians spend less time typing</li>
               <li>AI Community Health Summaries moving toward production validation</li>
               <li>Idempotency improvements for creation endpoints to further harden sync</li>
               <li>Planned: inventory manager for clinic supplies and medications</li>
