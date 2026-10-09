@@ -20,6 +20,15 @@
       .badge-cloud   { background: rgba(100,160,255,0.12); color: #7eb8ff; border: 1px solid rgba(100,160,255,0.3); }
       .badge-ai      { background: rgba(200,140,255,0.12); color: #d09fff; border: 1px solid rgba(200,140,255,0.3); }
       .code-block { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; padding: 1rem 1.2rem; font-family: monospace; font-size: 0.82em; color: #e8e8e8 !important; line-height: 1.7; overflow-x: auto; margin: 0.8rem 0; white-space: pre; }
+      /* Hero title on two lines everywhere (the template hides <br> on phones) */
+      #header .hero-name, #header .hero-tag { display: block; }
+      /* Hide the template's decorative line under the hero buttons */
+      #header .actions:before, #header .actions:after { display: none !important; }
+      @media (max-width: 736px) {
+        #header { padding-top: 3.5em !important; padding-bottom: 3em !important; }
+        #header .icon.major { display: none !important; }
+        #header .hero-tag { font-size: 0.8em; margin-top: 0.3em; }
+      }
       .summary-box { background: #EEF5F4; border-left: 4px solid #0F5F59; border-radius: 0 8px 8px 0; padding: 1.1rem 1.4rem; margin: 0 0 1.75rem; font-size: 1em; line-height: 1.65; color: #1F2D3D !important; }
       .summary-box strong { color: #0F5F59 !important; }
       .callout { background: rgba(255,255,255,0.04); border-left: 3px solid rgba(100,180,255,0.5); border-radius: 0 6px 6px 0; padding: 0.8rem 1.2rem; margin: 1rem 0; font-size: 0.9em; color: #bbb; }
@@ -32,7 +41,7 @@
     <section id="header">
       <div class="inner">
         <span class="icon solid major fa-heartbeat"></span>
-        <h1>La Tortuga EMR<br /><strong>Offline medical records for rural clinics</strong></h1>
+        <h1><span class="hero-name">La Tortuga EMR</span><strong class="hero-tag">Offline medical records for rural clinics</strong></h1>
         <p>8 tablets &bull; 100+ patients &bull; zero internet &bull; field deployed in Chiapas, Mexico</p>
         <ul class="actions special">
           <li><a href="#overview" class="button scrolly">Overview</a></li>
