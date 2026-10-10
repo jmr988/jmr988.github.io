@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -44,6 +43,34 @@
 				margin-top: 1.75em;
 			}
 			.hero-buttons .button { margin: 0; }
+
+			/* Contact links under the hero buttons */
+			.hero-contact {
+				list-style: none;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 0.5em 1.75em;
+				margin: 1.5em 0 0;
+				padding: 0;
+			}
+			.hero-contact li { padding: 0; margin: 0; }
+			.hero-contact a {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5em;
+				color: #ffffff !important;
+				border-bottom: none !important;
+				font-size: 0.95em;
+				opacity: 0.9;
+				min-height: 44px;
+			}
+			.hero-contact a:hover { opacity: 1; text-decoration: underline; }
+			.hero-contact .icon:before { font-size: 1.2em; }
+			@media (max-width: 736px) {
+				.hero-contact { gap: 0 1.25em; margin-top: 1em; }
+				.hero-contact a { font-size: 0.9em; }
+			}
 			@media (max-width: 736px) {
 				.hero-buttons {
 					flex-direction: column;
@@ -215,6 +242,11 @@
 					<a href="projects/la-tortuga-emr.html" class="button primary">See the EMR</a>
 					<a href="mailto:jmrodriguez98842@gmail.com" class="button">Let's talk</a>
 				</div>
+				<ul class="hero-contact">
+					<li><a href="https://www.linkedin.com/in/josemrodriguez918" target="_blank" rel="noopener"><span class="icon brands fa-linkedin"></span>LinkedIn</a></li>
+					<li><a href="https://github.com/jmr988" target="_blank" rel="noopener"><span class="icon brands fa-github"></span>GitHub</a></li>
+					<li><a href="mailto:jmrodriguez98842@gmail.com"><span class="icon solid fa-envelope"></span>jmrodriguez98842@gmail.com</a></li>
+				</ul>
 			</div>
 		</section>
 
